@@ -9,3 +9,4 @@ bench/out/
 .venv_laya/
 .venv_toonout/
 episodes/
+/out/

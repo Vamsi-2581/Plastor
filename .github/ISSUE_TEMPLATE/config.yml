@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Roadmap (English)
+    url: https://github.com/endlessGold/ModelerHarness/blob/main/ROADMAP.en.md
+    about: Stages K0–K9, milestones and where help is needed.
+  - name: 로드맵(한국어)
+    url: https://github.com/endlessGold/ModelerHarness/blob/main/ROADMAP.md
+    about: 단계 K0~K9, 이정표, 도움이 필요한 곳.

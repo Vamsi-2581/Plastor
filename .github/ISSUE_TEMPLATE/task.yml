@@ -1,0 +1,45 @@
+name: Task / 작업 제안
+description: Propose or claim a piece of work. The pass condition comes first. / 할 일을 제안하거나 맡습니다. 통과 조건을 먼저 적습니다.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping! This project only counts a result as done when a check that actually ran says PASS.
+        So please write **how we will know it worked** before any code. See [ROADMAP.en.md](https://github.com/endlessGold/ModelerHarness/blob/main/ROADMAP.en.md) and [CONTRIBUTING.md](https://github.com/endlessGold/ModelerHarness/blob/main/CONTRIBUTING.md).
+        English or Korean, whichever you prefer. 영어든 한국어든 편한 쪽으로 쓰세요.
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal / 목표
+      description: What should be different when this is done? / 끝나면 무엇이 달라지나요?
+    validations:
+      required: true
+  - type: textarea
+    id: pass
+    attributes:
+      label: Pass condition / 통과 조건
+      description: |
+        A command and the result that means PASS, written before running. Example: `mh score ...` gives volume IoU ≥ 0.80 on the held-out set, exit code 0.
+        돌리기 전에 적는 명령과 PASS 기준. 실패해도 나중에 낮추지 않습니다.
+    validations:
+      required: true
+  - type: input
+    id: roadmap
+    attributes:
+      label: Roadmap stage or work item / 로드맵 자리
+      placeholder: "e.g. K3, item 8"
+  - type: input
+    id: trace
+    attributes:
+      label: Trace IDs (if based on a paper or tool) / 추적 ID
+      placeholder: "e.g. R-013"
+  - type: dropdown
+    id: who
+    attributes:
+      label: Who will do the work? / 누가 하나요?
+      options:
+        - A person / 사람
+        - An AI coding agent (please name it) / AI 코딩 에이전트(이름 적기)
+        - A person with an AI agent / 사람 + AI 에이전트
+        - Not decided, up for grabs / 아직 정하지 않음

@@ -38,7 +38,7 @@ git clone https://github.com/endlessGold/ModelerHarness
 cd ModelerHarness/rust && cargo build --release && cd ..
 rust/target/release/mh.exe list                   # all tools
 rust/target/release/mh.exe trace_check '{}'       # what is reflected, what is still missing
-rust/target/release/mh.exe loop_next '{}'         # what the loop engine says to do next (needs loop/plan.json)
+# then try the one-minute synthetic run in README "Quick start" (bundle → fit → score)
 ```
 
 The Python tests use Blender 5.2's bundled Python, for example `"<Blender>/5.2/python/bin/python.exe" tests/selftest_traceability.py`. Exit code 0 means PASS. Some tests point to unpublished fixtures and will not run in the public copy.
@@ -106,7 +106,7 @@ git clone https://github.com/endlessGold/ModelerHarness
 cd ModelerHarness/rust && cargo build --release && cd ..
 rust/target/release/mh.exe list                   # 도구 전체
 rust/target/release/mh.exe trace_check '{}'       # 반영된 것과 아직 빠진 것
-rust/target/release/mh.exe loop_next '{}'         # 루프 엔진이 정한 다음 할 일(loop/plan.json 필요)
+# 그다음 README "실행" 의 1분짜리 합성 과제 한 판(bundle → fit → score)
 ```
 
 파이썬 시험은 Blender 5.2 번들 파이썬으로 돌립니다. 예: `"<Blender>/5.2/python/bin/python.exe" tests/selftest_traceability.py`. 끝 코드 0 이 PASS 입니다. 일부 시험은 공개하지 않은 고정물을 가리켜서 공개본에서는 돌지 않습니다.

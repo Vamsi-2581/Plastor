@@ -5,7 +5,7 @@ No paid 3D-generation services and no big GPU: it is developed on a GTX 750 Ti (
 
 [한국어는 아래에 있습니다 ↓](#한국어)
 
-**Want to help?** We are looking for collaborators: graphics and geometry developers, Blender technical artists, Rust developers, artists with openly licensed creature sheets, and LLM evaluators. See [CONTRIBUTING.md](CONTRIBUTING.md).
+**Want to help?** We are looking for collaborators, human or AI agent: graphics and geometry developers, Blender technical artists, Rust developers, artists with openly licensed creature sheets, and LLM evaluators. See [CONTRIBUTING.md](CONTRIBUTING.md) and the [good first issues](https://github.com/endlessGold/ModelerHarness/labels/good%20first%20issue). Please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 **Roadmap:** stages K0–K9, milestones with success criteria fixed before each run, risks and where to help are in [ROADMAP.en.md](ROADMAP.en.md) (plain language, foldable sections). A more detailed Korean version is [ROADMAP.md](ROADMAP.md).
 
@@ -71,14 +71,27 @@ The long-term goal: from a creature model sheet to an **editable, rig-ready game
 
 ## Quick start
 
+Needs only Rust (`cargo`). No Blender, Python or GPU for these steps. On Linux/macOS the binary is `mh` instead of `mh.exe`.
+
 ```bash
-cd rust && cargo build --release && cd ..
-rust/target/release/mh.exe bundle '{"out": "bench/v2", "prefix": "dev", "start": 1000, "count": 12}'   # make synthetic tasks
-rust/target/release/mh.exe fit '{"frame": "bench/v2/dev_1000/meta.json", "masks": "bench/v2/dev_1000/drawn_all.npz", "out": "out/dev_1000"}'
-rust/target/release/mh.exe score '{"frame": "bench/v2/dev_1000/meta.json", "obj": "out/dev_1000/merged.obj", "truth": "bench/v2/dev_1000/truth_all.npz", "prims": "bench/v2/dev_1000/prims.json"}'
-rust/target/release/mh.exe trace_check '{}'            # traceability report
-rust/target/release/mh.exe loop_next '{}'              # next action from the loop engine (loop/plan.json)
+cd rust && cargo build --release && cd ..        # about 1.5 min on an old i5
+rust/target/release/mh.exe bundle '{"out": "out/tasks", "prefix": "dev", "start": 1000, "count": 1}'   # one synthetic creature with a 3D answer key (~16 s)
+rust/target/release/mh.exe fit '{"frame": "out/tasks/dev_1000/meta.json", "masks": "out/tasks/dev_1000/drawn_all.npz", "out": "out/dev_1000"}'
+rust/target/release/mh.exe score '{"frame": "out/tasks/dev_1000/meta.json", "obj": "out/dev_1000/merged.obj", "truth": "out/tasks/dev_1000/truth_all.npz", "prims": "out/tasks/dev_1000/prims.json"}'
+rust/target/release/mh.exe trace_check '{}'      # open backlog of research not yet linked to code and tests
 ```
+
+What you should see, checked on a fresh clone (2026-10-30):
+
+| Command | Expected verdict | Why |
+|---|---|---|
+| `bundle` | PASS | |
+| `fit` | PASS | |
+| `score` | UNKNOWN, with volume IoU about 0.95 | The per-part score needs part meshes, which this quick path does not write. The other numbers are real |
+| `trace_check` | FAIL (exit code 1) | Expected: its problem list is the open backlog, see [issue #1](https://github.com/endlessGold/ModelerHarness/issues/1) |
+
+`mh loop_next` needs a `loop/plan.json` that is not in the repository yet, so it returns ERROR on a fresh clone.
+On Windows, if the build fails with "file not found" inside `target/`, the folder path is too long: build from a short path or set `CARGO_TARGET_DIR` to one.
 
 The Python parts use Blender 5.2's bundled Python (see the commands section of `CLAUDE.md`).
 
@@ -165,14 +178,27 @@ ModelerHarness는 모델을 "더 똑똑하게" 만들려 하지 않는다. 대�
 
 ## 실행
 
+Rust(`cargo`)만 있으면 된다. 이 단계에는 Blender·파이썬·GPU가 필요 없다. Linux·macOS에서는 실행 파일 이름이 `mh.exe` 대신 `mh`다.
+
 ```bash
-cd rust && cargo build --release && cd ..
-rust/target/release/mh.exe bundle '{"out": "bench/v2", "prefix": "dev", "start": 1000, "count": 12}'   # 합성 과제 만들기
-rust/target/release/mh.exe fit '{"frame": "bench/v2/dev_1000/meta.json", "masks": "bench/v2/dev_1000/drawn_all.npz", "out": "out/dev_1000"}'
-rust/target/release/mh.exe score '{"frame": "bench/v2/dev_1000/meta.json", "obj": "out/dev_1000/merged.obj", "truth": "bench/v2/dev_1000/truth_all.npz", "prims": "bench/v2/dev_1000/prims.json"}'
-rust/target/release/mh.exe trace_check '{}'            # 추적 보고
-rust/target/release/mh.exe loop_next '{}'              # 루프 엔진이 정한 다음 행동(loop/plan.json)
+cd rust && cargo build --release && cd ..        # 오래된 i5 에서 약 1분 30초
+rust/target/release/mh.exe bundle '{"out": "out/tasks", "prefix": "dev", "start": 1000, "count": 1}'   # 3D 정답이 있는 합성 크리처 1개(약 16초)
+rust/target/release/mh.exe fit '{"frame": "out/tasks/dev_1000/meta.json", "masks": "out/tasks/dev_1000/drawn_all.npz", "out": "out/dev_1000"}'
+rust/target/release/mh.exe score '{"frame": "out/tasks/dev_1000/meta.json", "obj": "out/dev_1000/merged.obj", "truth": "out/tasks/dev_1000/truth_all.npz", "prims": "out/tasks/dev_1000/prims.json"}'
+rust/target/release/mh.exe trace_check '{}'      # 아직 코드·시험과 이어지지 않은 조사 목록
 ```
+
+새로 받은 복제본에서 확인한 결과(2026-10-30):
+
+| 명령 | 나와야 할 판정 | 이유 |
+|---|---|---|
+| `bundle` | PASS | |
+| `fit` | PASS | |
+| `score` | UNKNOWN, 부피 IoU 약 0.95 | 부위별 점수는 부위 메시가 필요한데, 이 빠른 길은 부위 메시를 쓰지 않는다. 나머지 숫자는 실제 값이다 |
+| `trace_check` | FAIL(끝 코드 1) | 정상이다. 문제 목록이 곧 남은 일이다. [이슈 #1](https://github.com/endlessGold/ModelerHarness/issues/1) |
+
+`mh loop_next` 는 저장소에 아직 없는 `loop/plan.json` 이 필요해서, 새 복제본에서는 ERROR 를 낸다.
+윈도에서 `target/` 안의 파일을 못 찾는다며 빌드가 실패하면 폴더 경로가 너무 긴 것이다. 짧은 경로에서 빌드하거나 `CARGO_TARGET_DIR` 을 짧은 경로로 둔다.
 
 파이썬 부분은 Blender 5.2 번들 파이썬을 쓴다(`CLAUDE.md` 명령 절).
 

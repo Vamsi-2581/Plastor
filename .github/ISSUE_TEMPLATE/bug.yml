@@ -1,0 +1,29 @@
+name: Bug / 버그
+description: Something gave the wrong verdict, crashed, or did not build. / 판정이 틀렸거나, 멈췄거나, 빌드가 안 됩니다.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: command
+    attributes:
+      label: Command you ran / 실행한 명령
+      render: bash
+    validations:
+      required: true
+  - type: textarea
+    id: got
+    attributes:
+      label: What you got (verdict, exit code, output) / 받은 결과(판정·끝 코드·출력)
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected / 기대한 결과
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: OS, Rust version, commit / 운영체제·Rust 버전·커밋
+      placeholder: "Windows 11, rustc 1.xx, abc1234"
