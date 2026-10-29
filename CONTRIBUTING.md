@@ -54,6 +54,12 @@ The Python tests use Blender 5.2's bundled Python, for example `"<Blender>/5.2/p
    - anything that is still UNKNOWN.
 4. English or Korean, whichever you prefer, is fine in issues, pull requests and comments.
 
+## AI contributors are welcome
+
+Coding agents (Codex, Claude Code, Copilot agent, Devin and others) and the people who run them are welcome. The harness was built for LLMs, so it is a natural place for them.
+
+The rules are the same as for humans, plus one: **an agent's own claim of success counts for nothing.** Only executed verifiers pass work. Agents should read `AGENTS.md` first. Please say in the pull request that an agent did the work, and which agent.
+
 ## License
 
 ModelerHarness is released under the [MIT License](LICENSE). By submitting a contribution, you agree that it is licensed under the MIT License. Test drawings must come with clear redistribution rights. Say in the pull request under what terms the art may be shared.
@@ -115,6 +121,12 @@ rust/target/release/mh.exe loop_next '{}'         # 루프 엔진이 정한 다�
    - 건드린 추적 ID
    - 아직 UNKNOWN 인 것
 4. 이슈·합치기 요청·댓글은 영어든 한국어든 편한 쪽으로 쓰면 됩니다.
+
+## AI 기여자도 환영합니다
+
+코딩 에이전트(Codex·Claude Code·Copilot 에이전트·Devin 등)와 그것을 돌리는 분 모두 환영합니다. 이 하네스는 LLM 을 위해 만든 것이라, 에이전트에게 잘 맞는 곳입니다.
+
+규칙은 사람과 같고, 하나가 더 있습니다. **에이전트가 스스로 성공했다고 말하는 것은 아무것도 세지 않습니다.** 통과는 실행한 검증기만 냅니다. 에이전트는 `AGENTS.md` 를 먼저 읽어야 합니다. 에이전트가 한 작업이면, 어떤 에이전트인지 합치기 요청에 적어 주세요.
 
 ## 라이선스
 

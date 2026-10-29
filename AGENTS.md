@@ -1,3 +1,33 @@
+# For AI coding agents (Codex, Claude Code, Copilot agent, Devin, etc.)
+
+AI contributors are welcome here. Read `CONTRIBUTING.md` first. The rules that matter most for an agent:
+
+1. **You cannot pass your own work.**
+   - Only a verifier that actually ran gives PASS: a self-test exit code 0, a tool verdict, or `mh trace_check`.
+   - Never write "done" or "PASS" from your own judgment. If you could not run something, report UNKNOWN and why.
+2. **Write criteria before running, and never lower them after a failure.**
+   - Put the criteria in the issue or pull request first.
+3. **Do not hand-write coordinates or vertex values.**
+   - Use the tools (`mh <tool> '<JSON>'` or the MCP server `mh mcp`).
+   - Numbers come from solvers and measurements.
+4. **Keep research traceable.**
+   - A change based on a paper or tool needs an entry in `trace/registry.json`.
+   - Put ID markers in the design, code and test, then run `mh trace_verify`.
+   - ID markers alone do not count: the linked test must really exercise the feature.
+5. **One change per pull request.** Include:
+   - the criteria;
+   - the test output;
+   - the trace IDs you touched;
+   - what is still UNKNOWN.
+6. **Language and hardware.**
+   - Docs, comments and commit messages in this repository are in Korean. English is fine for outside contributions; maintainers may translate.
+   - Do not add paid APIs or large-GPU requirements.
+   - Do not add art you have no right to redistribute.
+
+Start with `rust/target/release/mh.exe trace_check '{}'`. Its problem list is the open backlog, and it is a good first task. The rules below are the maintainers' internal rules, written in Korean. They describe the same discipline in more detail; skip the parts that name local paths.
+
+---
+
 # ModelerHarness (Codex 등 다른 에이전트용 규칙, CLAUDE.md 와 같은 내용)
 
 LLM 이 숙련 모델러처럼 도면에 충실한 3D 메시를 만들게 하는 무료 로컬 하네스. 설계는 `docs/설계서.md`.
