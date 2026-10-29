@@ -8,7 +8,7 @@ The core idea: **the LLM decides, tools measure, and only executed verifiers can
 
 ## Where we need help
 
-Each area links to an item in the work plan (`docs/루프_작업목록.md`, `docs/구현계획_통합.md`).
+Each area links to an item in the work plan (`docs/루프_작업목록.md`, `docs/구현계획_통합.md`). The plain-language roadmap with all stages and milestones is [ROADMAP.en.md](ROADMAP.en.md) (Korean version: [ROADMAP.md](ROADMAP.md)).
 
 | Area | What is needed | Good fit for |
 |---|---|---|
@@ -76,7 +76,7 @@ ModelerHarness 는 LLM 이 숙련 3D 모델러처럼 일하게 돕는 무료 로
 
 ## 도움이 필요한 곳
 
-각 분야는 작업 계획(`docs/루프_작업목록.md`, `docs/구현계획_통합.md`)의 항목과 이어져 있습니다.
+각 분야는 작업 계획(`docs/루프_작업목록.md`, `docs/구현계획_통합.md`)의 항목과 이어져 있습니다. 단계와 이정표 전체는 쉬운 말로 쓴 [ROADMAP.md](ROADMAP.md) 에 있습니다.
 
 | 분야 | 필요한 것 | 어울리는 분 |
 |---|---|---|

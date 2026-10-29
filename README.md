@@ -7,6 +7,8 @@ No paid 3D-generation services and no big GPU: it is developed on a GTX 750 Ti (
 
 **Want to help?** We are looking for collaborators: graphics and geometry developers, Blender technical artists, Rust developers, artists with openly licensed creature sheets, and LLM evaluators. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+**Roadmap:** stages K0–K9, milestones with success criteria fixed before each run, risks and where to help are in [ROADMAP.en.md](ROADMAP.en.md) (plain language, foldable sections). A more detailed Korean version is [ROADMAP.md](ROADMAP.md).
+
 ## Vision
 
 General-purpose LLMs can reason about shapes, names and structure, but they are weak exactly where 3D modeling is unforgiving:
@@ -112,6 +114,8 @@ ModelerHarness는 모델을 "더 똑똑하게" 만들려 하지 않는다. 대�
 
 **함께하실 분을 찾습니다.** 그래픽스·기하 개발자, Blender 테크니컬 아티스트, Rust 개발자, 공개 라이선스 크리처 도면을 줄 수 있는 아티스트, LLM 평가 경험자. [CONTRIBUTING.md](CONTRIBUTING.md) 를 보세요.
 
+**로드맵:** 단계 K0~K9, 돌리기 전에 정한 성공 기준이 붙은 이정표, 위험, 도울 곳을 쉬운 말로 정리했습니다. [ROADMAP.md](ROADMAP.md)(접어서 볼 수 있음).
+
 ## 어떻게 동작하나: 하네스 층
 
 - **MCP 서버** `mh mcp`(stdio JSON-RPC, `.mcp.json`에 `modeler-harness`로 등록). 도구 14개가 맡는 역할은 다음과 같다.
@@ -142,7 +146,7 @@ ModelerHarness는 모델을 "더 똑똑하게" 만들려 하지 않는다. 대�
 - **실제 손그림 도면에서는 아직 실패한다.** 머리가 납작해진다. 실루엣만으로는 깊이가 정해지지 않기 때문이다. 다음 단계는 톤 띠(크로스 컨투어), 깊이 사전, LLM 구조 판단이다.
 - **자체 시험:** MCP 서버(12), 추적 검사기(11), 루프 엔진(17)이 모두 PASS다. 장부에 오른 조사 104개 중 14개가 반영됨으로 확인됐다. 장부 전체는 아직 FAIL이다. 옛 조사 29개가 코드·시험과 연결되지 않았기 때문이고, 그 목록이 남은 일이다.
 - **아직 못 한 것:** LLM 판단 능력 측정(K0), 텍스처·리토폴로지·리깅 마감, Godot 내보내기.
-- 자세한 진단은 `docs/진단_방향재검토.md`, 계획은 `docs/구현계획_통합.md`, 작업 루프는 `docs/루프_작업목록.md`, 기록은 `docs/수정_기록.md`에 있다.
+- 전체 로드맵은 [ROADMAP.md](ROADMAP.md). 자세한 진단은 `docs/진단_방향재검토.md`, 계획은 `docs/구현계획_통합.md`, 작업 루프는 `docs/루프_작업목록.md`, 기록은 `docs/수정_기록.md`에 있다.
 
 ## 구성
 
