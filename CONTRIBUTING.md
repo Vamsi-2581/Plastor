@@ -1,8 +1,8 @@
-# Contributing to ModelerHarness — we are looking for collaborators
+# Contributing to Plastor — we are looking for collaborators
 
 [한국어는 아래에 있습니다 ↓](#한국어)
 
-ModelerHarness is a free, local harness that lets an LLM work like a skilled 3D modeler. It turns creature model sheets (front, side and back views) into 3D meshes that stay faithful to the drawings. It runs on modest hardware (a 2 GB GPU is enough) with Blender, Rust and a little Python, and needs no paid services.
+Plastor is a free, local harness that lets an LLM work like a skilled 3D modeler. It turns creature model sheets (front, side and back views) into 3D meshes that stay faithful to the drawings. It runs on modest hardware (a 2 GB GPU is enough) with Blender, Rust and a little Python, and needs no paid services.
 
 The core idea: **the LLM decides, tools measure, and only executed verifiers can pass work.** We are building this in the open and would love help from people who care about any part of it.
 
@@ -34,8 +34,8 @@ Each area links to an item in the work plan (`docs/루프_작업목록.md`, `doc
 ## Getting started
 
 ```bash
-git clone https://github.com/endlessGold/ModelerHarness
-cd ModelerHarness/rust && cargo build --release && cd ..
+git clone https://github.com/endlessGold/Plastor
+cd Plastor/rust && cargo build --release && cd ..
 rust/target/release/mh.exe list                   # all tools
 rust/target/release/mh.exe trace_check '{}'       # what is reflected, what is still missing
 # then try the one-minute synthetic run in README "Quick start" (bundle → fit → score)
@@ -62,15 +62,15 @@ The rules are the same as for humans, plus one: **an agent's own claim of succes
 
 ## License
 
-ModelerHarness is released under the [MIT License](LICENSE). By submitting a contribution, you agree that it is licensed under the MIT License. Test drawings must come with clear redistribution rights. Say in the pull request under what terms the art may be shared.
+Plastor is released under the [MIT License](LICENSE). By submitting a contribution, you agree that it is licensed under the MIT License. Test drawings must come with clear redistribution rights. Say in the pull request under what terms the art may be shared.
 
 ---
 
 ## 한국어
 
-# ModelerHarness 에 기여하기: 함께할 사람을 찾습니다
+# Plastor 에 기여하기: 함께할 사람을 찾습니다
 
-ModelerHarness 는 LLM 이 숙련 3D 모델러처럼 일하게 돕는 무료 로컬 하네스입니다. 크리처 도면(정면·옆·뒤)을 도면에 충실한 3D 메시로 만듭니다. 수수한 하드웨어(2GB GPU면 충분)에서 Blender·Rust·약간의 파이썬으로 돌고, 유료 서비스가 필요 없습니다.
+Plastor 는 LLM 이 숙련 3D 모델러처럼 일하게 돕는 무료 로컬 하네스입니다. 크리처 도면(정면·옆·뒤)을 도면에 충실한 3D 메시로 만듭니다. 수수한 하드웨어(2GB GPU면 충분)에서 Blender·Rust·약간의 파이썬으로 돌고, 유료 서비스가 필요 없습니다.
 
 핵심 생각: **판단은 LLM 이, 측정은 도구가, 통과는 실행한 검증기만.** 이 프로젝트는 공개로 만들고 있습니다. 어느 부분이든 관심 있는 분의 도움을 기다립니다.
 
@@ -102,8 +102,8 @@ ModelerHarness 는 LLM 이 숙련 3D 모델러처럼 일하게 돕는 무료 로
 ## 시작하기
 
 ```bash
-git clone https://github.com/endlessGold/ModelerHarness
-cd ModelerHarness/rust && cargo build --release && cd ..
+git clone https://github.com/endlessGold/Plastor
+cd Plastor/rust && cargo build --release && cd ..
 rust/target/release/mh.exe list                   # 도구 전체
 rust/target/release/mh.exe trace_check '{}'       # 반영된 것과 아직 빠진 것
 # 그다음 README "실행" 의 1분짜리 합성 과제 한 판(bundle → fit → score)
@@ -130,4 +130,4 @@ rust/target/release/mh.exe trace_check '{}'       # 반영된 것과 아직 빠�
 
 ## 라이선스
 
-ModelerHarness 는 [MIT 라이선스](LICENSE)로 공개합니다. 기여를 보내면 그 기여도 MIT 라이선스로 낸다는 데 동의하는 것입니다. 시험 도면은 다시 배포할 권리가 분명해야 합니다. 그림을 어떤 조건으로 나눠도 되는지 합치기 요청에 적어 주세요.
+Plastor 는 [MIT 라이선스](LICENSE)로 공개합니다. 기여를 보내면 그 기여도 MIT 라이선스로 낸다는 데 동의하는 것입니다. 시험 도면은 다시 배포할 권리가 분명해야 합니다. 그림을 어떤 조건으로 나눠도 되는지 합치기 요청에 적어 주세요.

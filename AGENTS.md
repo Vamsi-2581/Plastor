@@ -28,7 +28,7 @@ Start with `rust/target/release/mh.exe trace_check '{}'`. Its problem list is th
 
 ---
 
-# ModelerHarness (Codex 등 다른 에이전트용 규칙, CLAUDE.md 와 같은 내용)
+# Plastor, 옛 이름 ModelerHarness (Codex 등 다른 에이전트용 규칙, CLAUDE.md 와 같은 내용)
 
 LLM 이 숙련 모델러처럼 도면에 충실한 3D 메시를 만들게 하는 무료 로컬 하네스. 설계는 `docs/설계서.md`.
 케라투라(`E:\작업물\Projects\Keratoura`) 파일은 고치지 않는다.

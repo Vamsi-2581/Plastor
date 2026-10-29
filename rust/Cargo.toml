@@ -2,7 +2,7 @@
 name = "mh"
 version = "0.1.0"
 edition = "2021"
-description = "ModelerHarness 도구(Rust 판). docs/설계_러스트.md"
+description = "Plastor 도구(Rust 판). docs/설계_러스트.md"
 
 [dependencies]
 serde_json = { version = "1.0.154", features = ["float_roundtrip"] }  # 실수를 정확히 읽기(기본은 마지막 자리가 틀릴 수 있어 파이썬판과 원점이 달랐음)

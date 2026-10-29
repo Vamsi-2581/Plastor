@@ -2,7 +2,7 @@
 
 [한국어는 아래에 있습니다 ↓](#행동-강령)
 
-ModelerHarness welcomes people of every background and experience level, and the AI agents they run.
+Plastor welcomes people of every background and experience level, and the AI agents they run.
 
 **Expected:**
 - Be kind and patient, especially with newcomers and people writing in their second language.
@@ -22,7 +22,7 @@ ModelerHarness welcomes people of every background and experience level, and the
 
 ## 행동 강령
 
-ModelerHarness 는 배경과 경험에 상관없이 모든 사람과, 그들이 돌리는 AI 에이전트를 환영합니다.
+Plastor 는 배경과 경험에 상관없이 모든 사람과, 그들이 돌리는 AI 에이전트를 환영합니다.
 
 **바라는 것:**
 - 친절하고 참을성 있게. 특히 처음 온 사람, 모국어가 아닌 말로 쓰는 사람에게.

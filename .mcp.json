@@ -13,7 +13,7 @@
         "BLENDER_PORT": "9876"
       }
     },
-    "modeler-harness": {
+    "plastor": {
       "command": "rust/target/release/mh.exe",
       "args": [
         "mcp"

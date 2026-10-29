@@ -1,4 +1,4 @@
-# ModelerHarness 로드맵과 계획서
+# Plastor 로드맵과 계획서
 
 > **English version: [ROADMAP.en.md](ROADMAP.en.md)** · 이 문서는 한국어판이다. 영어판과 같은 계획이고, 단계별 기준과 보류 항목을 더 자세히 적었다.
 
@@ -609,13 +609,13 @@ flowchart TD
 
 | 도움이 필요한 곳 | 로드맵 자리 | 이슈 | 어울리는 분 |
 |---|---|---|---|
-| **도면에서 깊이 읽기**(지금 막힌 곳) | K3, 이정표 ② | [#2](https://github.com/endlessGold/ModelerHarness/issues/2) | 그래픽스·기하 개발자, 연구자 |
-| **공개 라이선스 시험 도면** | 9절 위험 대응, K8 | [#3](https://github.com/endlessGold/ModelerHarness/issues/3) | 아티스트, 크리처 디자이너 |
-| **고칠 수 있는 Blender 객체로 내보내기** | K7, 항목 8 | [#4](https://github.com/endlessGold/ModelerHarness/issues/4) | Blender 테크니컬 아티스트 |
-| **게임용 마감**(리토폴로지·굽힘 시험·영향 뼈 4·Godot) | K7, 이정표 ④ | [#5](https://github.com/endlessGold/ModelerHarness/issues/5) | Blender 테크니컬 아티스트, 리거 |
-| **Rust 이전**(트레이싱부터) | 항목 7 | [#6](https://github.com/endlessGold/ModelerHarness/issues/6) | Rust 개발자 |
-| **AI 평가**(MCP로 일하는 AI 대 자동 맞추기) | K0, LLM A/B, 이정표 ③ | [#7](https://github.com/endlessGold/ModelerHarness/issues/7) | LLM·VLM 평가 경험자 |
-| **추적 밀린 일**(처음 하기 좋은 일) | 항목 4h | [#1](https://github.com/endlessGold/ModelerHarness/issues/1) | 누구나 |
+| **도면에서 깊이 읽기**(지금 막힌 곳) | K3, 이정표 ② | [#2](https://github.com/endlessGold/Plastor/issues/2) | 그래픽스·기하 개발자, 연구자 |
+| **공개 라이선스 시험 도면** | 9절 위험 대응, K8 | [#3](https://github.com/endlessGold/Plastor/issues/3) | 아티스트, 크리처 디자이너 |
+| **고칠 수 있는 Blender 객체로 내보내기** | K7, 항목 8 | [#4](https://github.com/endlessGold/Plastor/issues/4) | Blender 테크니컬 아티스트 |
+| **게임용 마감**(리토폴로지·굽힘 시험·영향 뼈 4·Godot) | K7, 이정표 ④ | [#5](https://github.com/endlessGold/Plastor/issues/5) | Blender 테크니컬 아티스트, 리거 |
+| **Rust 이전**(트레이싱부터) | 항목 7 | [#6](https://github.com/endlessGold/Plastor/issues/6) | Rust 개발자 |
+| **AI 평가**(MCP로 일하는 AI 대 자동 맞추기) | K0, LLM A/B, 이정표 ③ | [#7](https://github.com/endlessGold/Plastor/issues/7) | LLM·VLM 평가 경험자 |
+| **추적 밀린 일**(처음 하기 좋은 일) | 항목 4h | [#1](https://github.com/endlessGold/Plastor/issues/1) | 누구나 |
 | **도면 요소 분류** | K5, 항목 6 | 아직 없음(이슈를 열어 맡기) | 개발자, 연구자 |
 | **영어 문서** | 전체 | 아직 없음 | 두 언어를 쓰는 분 |
 

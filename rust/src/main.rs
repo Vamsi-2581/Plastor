@@ -1,4 +1,4 @@
-//! mh: ModelerHarness 도구(Rust 판, docs/설계_러스트.md). 약속은 파이썬 mh_tool.py 와 같다.
+//! mh: Plastor 도구(Rust 판, docs/설계_러스트.md). 약속은 파이썬 mh_tool.py 와 같다.
 //! 사용: mh <도구> '<JSON>'  → 표준출력 {"판정", "요약", "파일"}, 끝 코드 PASS 0 · FAIL 1 · UNKNOWN 2 · ERROR 3.
 //! 받는 값에 좌표는 없다(파일 경로·부위 이름·설정만).
 mod anatomy;

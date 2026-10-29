@@ -1,11 +1,13 @@
-# ModelerHarness
+# Plastor
+
+*Plastor = Greek **plassein** ("to shape in clay") + Latin **castor** (the beaver, a builder). Formerly ModelerHarness; old links redirect here.*
 
 **A free, local harness that lets an LLM (such as Claude Code) work like a skilled 3D modeler — turning creature model sheets (front, side, back) into 3D meshes that stay faithful to the drawings.**
 No paid 3D-generation services and no big GPU: it is developed on a GTX 750 Ti (2 GB), an i5-3470 and 16 GB of RAM, and runs on Blender + Rust + a little Python.
 
 [한국어는 아래에 있습니다 ↓](#한국어)
 
-**Want to help?** We are looking for collaborators, human or AI agent: graphics and geometry developers, Blender technical artists, Rust developers, artists with openly licensed creature sheets, and LLM evaluators. See [CONTRIBUTING.md](CONTRIBUTING.md) and the [good first issues](https://github.com/endlessGold/ModelerHarness/labels/good%20first%20issue). Please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+**Want to help?** We are looking for collaborators, human or AI agent: graphics and geometry developers, Blender technical artists, Rust developers, artists with openly licensed creature sheets, and LLM evaluators. See [CONTRIBUTING.md](CONTRIBUTING.md) and the [good first issues](https://github.com/endlessGold/Plastor/labels/good%20first%20issue). Please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 **Roadmap:** stages K0–K9, milestones with success criteria fixed before each run, risks and where to help are in [ROADMAP.en.md](ROADMAP.en.md) (plain language, foldable sections). A more detailed Korean version is [ROADMAP.md](ROADMAP.md).
 
@@ -14,7 +16,7 @@ No paid 3D-generation services and no big GPU: it is developed on a GTX 750 Ti (
 General-purpose LLMs can reason about shapes, names and structure, but they are weak exactly where 3D modeling is unforgiving:
 they cannot reliably fuse several views into one 3D form, they get precise numbers and coordinates wrong, they cannot verify their own work, and they drift or declare false success on long tasks.
 
-ModelerHarness does not try to make the model "smarter". It surrounds the model with the discipline of a skilled modeler:
+Plastor does not try to make the model "smarter". It surrounds the model with the discipline of a skilled modeler:
 
 - **The LLM decides, tools measure.** The LLM chooses parts, operators (blob, tube, plate) and how to read each drawing element. Deterministic tools fit the primitives, assemble the mesh and compute every number. The LLM never writes coordinates.
 - **Only executed verifiers can pass work.** Verdicts are exactly PASS, FAIL, UNKNOWN or ERROR. A pass comes only from a verifier that actually ran. Criteria are written down before running and are never lowered to fit a failure.
@@ -25,7 +27,7 @@ The long-term goal: from a creature model sheet to an **editable, rig-ready game
 
 ## How it works: the harness layer
 
-- **MCP server** `mh mcp` (stdio JSON-RPC, registered as `modeler-harness` in `.mcp.json`). Its 14 tools cover:
+- **MCP server** `mh mcp` (stdio JSON-RPC, registered as `plastor` in `.mcp.json`). Its 14 tools cover:
   - episode state;
   - observation: numeric digest, part zoom, headless renders;
   - action: a blueprint of per-part operators, with coordinate arguments rejected;
@@ -88,7 +90,7 @@ What you should see, checked on a fresh clone (2026-10-30):
 | `bundle` | PASS | |
 | `fit` | PASS | |
 | `score` | UNKNOWN, with volume IoU about 0.95 | The per-part score needs part meshes, which this quick path does not write. The other numbers are real |
-| `trace_check` | FAIL (exit code 1) | Expected: its problem list is the open backlog, see [issue #1](https://github.com/endlessGold/ModelerHarness/issues/1) |
+| `trace_check` | FAIL (exit code 1) | Expected: its problem list is the open backlog, see [issue #1](https://github.com/endlessGold/Plastor/issues/1) |
 
 `mh loop_next` needs a `loop/plan.json` that is not in the repository yet, so it returns ERROR on a fresh clone.
 On Windows, if the build fails with "file not found" inside `target/`, the folder path is too long: build from a short path or set `CARGO_TARGET_DIR` to one.
@@ -108,6 +110,8 @@ The public copy is built with `tools/publish_public.sh`, which publishes the cur
 
 ## 한국어
 
+*Plastor(플라스토르) = 그리스어 **plassein**("흙으로 빚다") + 라틴어 **castor**(짓는 동물 비버). 옛 이름은 ModelerHarness 이고, 옛 주소는 이리로 연결된다.*
+
 **LLM(Claude Code 등)이 숙련 3D 모델러처럼 일하게 돕는 무료 로컬 하네스. 크리처 도면(정면·옆·뒤)을 보고, 도면에 충실한 3D 메시를 만든다.**
 유료 3D 생성 서비스나 큰 GPU 없이 돈다. GTX 750 Ti(2GB)·i5-3470·RAM 16GB에서 개발했고, Blender + Rust + 약간의 파이썬으로 동작한다.
 
@@ -116,7 +120,7 @@ The public copy is built with `tools/publish_public.sh`, which publishes the cur
 범용 LLM은 모양·이름·구조를 따져 볼 수는 있다. 하지만 3D 모델링이 봐주지 않는 바로 그 부분에서 약하다.
 여러 뷰를 하나의 3D 형태로 합치지 못하고, 정밀한 숫자·좌표를 틀리고, 자기 작업을 스스로 검증하지 못하고, 긴 작업에서는 길을 잃거나 거짓으로 완료를 선언한다.
 
-ModelerHarness는 모델을 "더 똑똑하게" 만들려 하지 않는다. 대신 숙련 모델러의 규율로 모델을 둘러싼다.
+Plastor는 모델을 "더 똑똑하게" 만들려 하지 않는다. 대신 숙련 모델러의 규율로 모델을 둘러싼다.
 
 - **판단은 LLM이, 측정은 도구가.** LLM은 부위, 연산자(덩어리·관·판), 도면 요소를 어떻게 읽을지를 정한다. 원형 맞추기, 메시 조립, 모든 숫자 계산은 결정적 도구가 한다. LLM은 좌표를 쓰지 않는다.
 - **통과는 실행한 검증기만 낸다.** 판정은 PASS·FAIL·UNKNOWN·ERROR 넷뿐이다. 통과는 실제로 돌린 검증기에서만 나온다. 기준은 돌리기 전에 적고, 실패에 맞춰 낮추지 않는다.
@@ -131,7 +135,7 @@ ModelerHarness는 모델을 "더 똑똑하게" 만들려 하지 않는다. 대�
 
 ## 어떻게 동작하나: 하네스 층
 
-- **MCP 서버** `mh mcp`(stdio JSON-RPC, `.mcp.json`에 `modeler-harness`로 등록). 도구 14개가 맡는 역할은 다음과 같다.
+- **MCP 서버** `mh mcp`(stdio JSON-RPC, `.mcp.json`에 `plastor`로 등록). 도구 14개가 맡는 역할은 다음과 같다.
   - 에피소드 상태
   - 관찰: 숫자 요약, 부위 확대, 헤드리스 그림
   - 행동: 부위별 연산자 설계도. 좌표 인자는 거부한다.
@@ -195,7 +199,7 @@ rust/target/release/mh.exe trace_check '{}'      # 아직 코드·시험과 이�
 | `bundle` | PASS | |
 | `fit` | PASS | |
 | `score` | UNKNOWN, 부피 IoU 약 0.95 | 부위별 점수는 부위 메시가 필요한데, 이 빠른 길은 부위 메시를 쓰지 않는다. 나머지 숫자는 실제 값이다 |
-| `trace_check` | FAIL(끝 코드 1) | 정상이다. 문제 목록이 곧 남은 일이다. [이슈 #1](https://github.com/endlessGold/ModelerHarness/issues/1) |
+| `trace_check` | FAIL(끝 코드 1) | 정상이다. 문제 목록이 곧 남은 일이다. [이슈 #1](https://github.com/endlessGold/Plastor/issues/1) |
 
 `mh loop_next` 는 저장소에 아직 없는 `loop/plan.json` 이 필요해서, 새 복제본에서는 ERROR 를 낸다.
 윈도에서 `target/` 안의 파일을 못 찾는다며 빌드가 실패하면 폴더 경로가 너무 긴 것이다. 짧은 경로에서 빌드하거나 `CARGO_TARGET_DIR` 을 짧은 경로로 둔다.

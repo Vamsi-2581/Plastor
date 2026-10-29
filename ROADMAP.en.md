@@ -1,4 +1,4 @@
-# ModelerHarness Roadmap
+# Plastor Roadmap
 
 [Korean version (한국어판): ROADMAP.md](ROADMAP.md) · Both versions describe the same plan with the same numbers.
 
@@ -278,7 +278,7 @@ The depth-estimation attempt (work item 4d) has its own stricter condition (head
 <details>
 <summary><b>▶ ③–⑤ in detail</b></summary>
 
-- **③ The AI makes it better:** on the same tasks (synthetic held-out set + bison), "Claude Code writing and fixing a blueprint through MCP" vs. "automatic fitting with no AI". The AI version must win on the bison before we can call this an "AI modeling harness". The numeric condition **will be written before running** (not written yet). See [issue #7](https://github.com/endlessGold/ModelerHarness/issues/7).
+- **③ The AI makes it better:** on the same tasks (synthetic held-out set + bison), "Claude Code writing and fixing a blueprint through MCP" vs. "automatic fitting with no AI". The AI version must win on the bison before we can call this an "AI modeling harness". The numeric condition **will be written before running** (not written yet). See [issue #7](https://github.com/endlessGold/Plastor/issues/7).
 - **④ Usable in a game (K7 and work item 8):** editable Blender objects match the fitted result with volume IoU ≥ 0.97; after retopology, quads ≥ 0.95 and silhouette drop ≤ 0.01; texture color error per material ΔE < 10; at most 4 bone influences per vertex; glTF export loads in Godot; the rig-readiness check keeps passing.
 - **⑤ Final verdict (K8):** on 10+ tasks, no loss in reprojection IoU vs. the current harness, three or more art measures improve (two AI families agree), and most people in a side-by-side comparison say "the new one is better".
 
@@ -312,7 +312,7 @@ All stages use one naming scheme, `K0`–`K9` (old names like M, S, R, P are map
 
 **Status:** interim Sonnet results on 62 answers: set 1 = 1.0, set 2 = 0.958, set 4 = 1.0, stability = 1.0. In set 3, even at half size the full image already showed the ears, so zoom gave no gain (condition 3 FAIL). Codex is being re-run after an execution bug fix, so **the final verdict is still UNKNOWN**.
 
-**How to help:** [issue #7](https://github.com/endlessGold/ModelerHarness/issues/7).
+**How to help:** [issue #7](https://github.com/endlessGold/Plastor/issues/7).
 
 > 💡 **Kappa (agreement beyond luck):** two judges picking at random between two answers still agree about half the time. Cohen's kappa removes the luck part: 1.0 = perfect agreement, 0 = no better than luck, 0.6 or more is usually called "substantial".
 
@@ -389,7 +389,7 @@ A visual hull is what you get by cutting out the front outline and the side outl
 
 **Pass condition (written before running):** held-out head volume IoU ≥ 0.80 **and** shading term on − off ≥ +0.03. For horn cross-sections: "on" gives higher volume than "off", with silhouette drop ≤ 0.005.
 
-**How to help:** [issue #2](https://github.com/endlessGold/ModelerHarness/issues/2). This is the most important open problem.
+**How to help:** [issue #2](https://github.com/endlessGold/Plastor/issues/2). This is the most important open problem.
 
 > 💡 **Cross-contour, tone bands, cel shading:** cross-contour lines wrap around a form, like the stripes on a watermelon or lines of latitude on a globe; how they bend shows which way the surface curves. **Cel shading** draws shadows as a few flat color steps, and the edges between steps are **tone bands**; where a band edge sits tells you which way the surface faces the light. Both are clues to the surface direction (the **normal**). Research we build on: *CrossShade* (SIGGRAPH 2012) and *Inverse Toon Shading*.
 
@@ -410,7 +410,7 @@ A visual hull is what you get by cutting out the front outline and the side outl
 
 **Pass conditions:** rebuilding the 6 synthetic tasks from blueprints alone scores the same as or better than K2–K3; the change-one-part test PASSES; real drawings get a visual check.
 
-**How to help:** [issue #7](https://github.com/endlessGold/ModelerHarness/issues/7).
+**How to help:** [issue #7](https://github.com/endlessGold/Plastor/issues/7).
 
 > 💡 **In plain words:** the architect (AI) draws "three rooms, living room facing south", and the builder (tools) measures and builds it. The architect never places individual bricks.
 
@@ -448,12 +448,12 @@ A visual hull is what you get by cutting out the front outline and the side outl
 **Goal:** a model a person can edit and a game can animate.
 
 **Steps and conditions:**
-1. **Export in editable form:** tubes → Blender curve + bevel, blobs → subdivision surface, with sliders, then re-fit after edits. Condition: volume IoU ≥ 0.97 vs. the fitted result. [Issue #4](https://github.com/endlessGold/ModelerHarness/issues/4).
+1. **Export in editable form:** tubes → Blender curve + bevel, blobs → subdivision surface, with sliders, then re-fit after edits. Condition: volume IoU ≥ 0.97 vs. the fitted result. [Issue #4](https://github.com/endlessGold/Plastor/issues/4).
 2. **Retopology (QuadriFlow):** quads ≥ 0.95, silhouette drop ≤ 0.01, denser loops at joints.
 3. **UV unwrapping:** PartUV or Blender Smart UV.
 4. **Texture:** project the drawing's colors. Average color error per material ΔE < 10.
 5. **Rigging:** bones from the blueprint's bone landmarks, automatic weights, at most 4 bone influences per vertex, and an automatic bend test.
-6. **Export:** glTF that loads in Godot. [Issue #5](https://github.com/endlessGold/ModelerHarness/issues/5).
+6. **Export:** glTF that loads in Godot. [Issue #5](https://github.com/endlessGold/Plastor/issues/5).
 
 <details>
 <summary>Glossary: retopology, UV, rigging, bone influences, glTF, ΔE</summary>
@@ -475,7 +475,7 @@ A visual hull is what you get by cutting out the front outline and the side outl
 
 **Goal:** show that it works on **many creatures**, not just one bison.
 
-- 10+ tasks, including openly licensed drawings ([issue #3](https://github.com/endlessGold/ModelerHarness/issues/3): we need artists for this). One pack per species, so only the drawing and the part table change.
+- 10+ tasks, including openly licensed drawings ([issue #3](https://github.com/endlessGold/Plastor/issues/3): we need artists for this). One pack per species, so only the drawing and the part table change.
 - Ledger statistics by failure type, better lesson search.
 - **Final verdict (all three must hold):** no loss in reprojection IoU vs. the current harness, three or more art measures improve (two families agree), and most people in a side-by-side comparison prefer the new result.
 
@@ -500,7 +500,7 @@ Separately from the stages, the concrete work items live in [`docs/루프_작업
 |---|---|---|
 | 5 · K0 | Finish measuring the AI | Codex answers are in and conditions 1–5 are judged |
 | 4g (d) | Move the work list into the loop engine's plan file (`loop/plan.json`) | `loop_next` picks the right current item |
-| 4h · 4f-① | Link 29 older research entries to code and tests | `mh trace_check` reports zero remaining problems ([issue #1](https://github.com/endlessGold/ModelerHarness/issues/1)) |
+| 4h · 4f-① | Link 29 older research entries to code and tests | `mh trace_check` reports zero remaining problems ([issue #1](https://github.com/endlessGold/Plastor/issues/1)) |
 
 ### Next (after the above)
 
@@ -515,7 +515,7 @@ Separately from the stages, the concrete work items live in [`docs/루프_작업
 | Item | What |
 |---|---|
 | 8 · K7 | Editable Blender output, retopology, UV, texture, rigging, Godot |
-| 7 | Move the remaining Python (tracing, build pipeline) to Rust ([issue #6](https://github.com/endlessGold/ModelerHarness/issues/6)) |
+| 7 | Move the remaining Python (tracing, build pipeline) to Rust ([issue #6](https://github.com/endlessGold/Plastor/issues/6)) |
 | K6 · K8 · K9 | Art critique, scale-up and final verdict, motion tracking |
 
 <details>
@@ -654,13 +654,13 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) first. AI coding agents should also read
 
 | Where help is needed | Roadmap place | Issue | Good fit for |
 |---|---|---|---|
-| **Read depth from drawings** (current blocker) | K3, milestone ② | [#2](https://github.com/endlessGold/ModelerHarness/issues/2) | Graphics and geometry developers, researchers |
-| **Openly licensed test drawings** | Risks (section 9), K8 | [#3](https://github.com/endlessGold/ModelerHarness/issues/3) | Artists, creature designers |
-| **Export as editable Blender objects** | K7, item 8 | [#4](https://github.com/endlessGold/ModelerHarness/issues/4) | Blender technical artists |
-| **Game-ready finish** (retopology, bend test, 4 bone influences, Godot) | K7, milestone ④ | [#5](https://github.com/endlessGold/ModelerHarness/issues/5) | Blender technical artists, riggers |
-| **Rust port** (tracing first) | Item 7 | [#6](https://github.com/endlessGold/ModelerHarness/issues/6) | Rust developers |
-| **AI evaluation** (AI through MCP vs. automatic fitting) | K0, LLM A/B, milestone ③ | [#7](https://github.com/endlessGold/ModelerHarness/issues/7) | People with LLM or VLM evaluation experience |
-| **Traceability backlog** (good first issue) | Item 4h | [#1](https://github.com/endlessGold/ModelerHarness/issues/1) | Anyone |
+| **Read depth from drawings** (current blocker) | K3, milestone ② | [#2](https://github.com/endlessGold/Plastor/issues/2) | Graphics and geometry developers, researchers |
+| **Openly licensed test drawings** | Risks (section 9), K8 | [#3](https://github.com/endlessGold/Plastor/issues/3) | Artists, creature designers |
+| **Export as editable Blender objects** | K7, item 8 | [#4](https://github.com/endlessGold/Plastor/issues/4) | Blender technical artists |
+| **Game-ready finish** (retopology, bend test, 4 bone influences, Godot) | K7, milestone ④ | [#5](https://github.com/endlessGold/Plastor/issues/5) | Blender technical artists, riggers |
+| **Rust port** (tracing first) | Item 7 | [#6](https://github.com/endlessGold/Plastor/issues/6) | Rust developers |
+| **AI evaluation** (AI through MCP vs. automatic fitting) | K0, LLM A/B, milestone ③ | [#7](https://github.com/endlessGold/Plastor/issues/7) | People with LLM or VLM evaluation experience |
+| **Traceability backlog** (good first issue) | Item 4h | [#1](https://github.com/endlessGold/Plastor/issues/1) | Anyone |
 | **Drawing-element classification** | K5, item 6 | None yet (open one to claim it) | Developers, researchers |
 | **English docs** | Everywhere | None yet | Bilingual contributors |
 

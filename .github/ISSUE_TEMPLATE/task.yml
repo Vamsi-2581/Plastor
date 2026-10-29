@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         Thanks for helping! This project only counts a result as done when a check that actually ran says PASS.
-        So please write **how we will know it worked** before any code. See [ROADMAP.en.md](https://github.com/endlessGold/ModelerHarness/blob/main/ROADMAP.en.md) and [CONTRIBUTING.md](https://github.com/endlessGold/ModelerHarness/blob/main/CONTRIBUTING.md).
+        So please write **how we will know it worked** before any code. See [ROADMAP.en.md](https://github.com/endlessGold/Plastor/blob/main/ROADMAP.en.md) and [CONTRIBUTING.md](https://github.com/endlessGold/Plastor/blob/main/CONTRIBUTING.md).
         English or Korean, whichever you prefer. 영어든 한국어든 편한 쪽으로 쓰세요.
   - type: textarea
     id: goal

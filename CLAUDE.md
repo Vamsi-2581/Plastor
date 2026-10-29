@@ -1,4 +1,4 @@
-# ModelerHarness
+# Plastor (옛 이름 ModelerHarness)
 
 LLM이 숙련 모델러처럼 도면에 충실한 3D 메시를 만들게 하는 무료 로컬 하네스. 설계는 `docs/설계서.md`, 배경 조사는 `docs/조사_보고서.md`.
 첫 사용처는 케라투라(`E:\작업물\Projects\Keratoura`)의 크리처 유닛이지만, 이 저장소는 케라투라와 독립이다(케라투라 파일을 고치지 않는다).

@@ -55,10 +55,15 @@ def sha(p):
 
 def main():
     d = os.path.join(ROOT, 'bench', 'v2', 'dev_1000')
+    if not os.path.exists(os.path.join(d, 'meta.json')):
+        # 새 복제본에는 과제가 없다(생성물이라 저장소에 안 넣음). 같은 씨앗으로 임시 폴더에 만든다: mh bundle 은 씨앗이 같으면 지문이 같다
+        tmp = tempfile.mkdtemp(prefix='mh_selftest_mcp_')
+        subprocess.run([MH, 'bundle', json.dumps({'out': tmp, 'prefix': 'dev', 'start': 1000, 'count': 1})], check=True, capture_output=True)
+        d = os.path.join(tmp, 'dev_1000')
     c = Client()
     r = c.req('initialize', {'protocolVersion': '2025-06-18', 'capabilities': {}, 'clientInfo': {'name': 'selftest', 'version': '0'}})
     c.note('notifications/initialized')
-    init_ok = r['result']['serverInfo']['name'] == 'modeler-harness' and 'tools' in r['result']['capabilities']
+    init_ok = r['result']['serverInfo']['name'] == 'plastor' and 'tools' in r['result']['capabilities']
     names = [t['name'] for t in c.req('tools/list')['result']['tools']]
     body, err = c.tool('harness_rules', {})
     ok('(가) initialize·tools/list·tools/call', init_ok and len(names) >= 13 and not err and 'PASS' in body['요약']['규칙'], '도구 %d개' % len(names))

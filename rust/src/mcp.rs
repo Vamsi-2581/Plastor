@@ -396,7 +396,7 @@ pub fn serve() {
             "initialize" => Some(Ok(json!({
                 "protocolVersion": req["params"]["protocolVersion"].as_str().unwrap_or("2025-06-18"),
                 "capabilities": {"tools": {}, "prompts": {}, "resources": {}},
-                "serverInfo": {"name": "modeler-harness", "version": env!("CARGO_PKG_VERSION")},
+                "serverInfo": {"name": "plastor", "version": env!("CARGO_PKG_VERSION")},
                 "instructions": RULES_TEXT}))),
             "ping" => Some(Ok(json!({}))),
             "tools/list" => Some(Ok(json!({"tools": tools()}))),
