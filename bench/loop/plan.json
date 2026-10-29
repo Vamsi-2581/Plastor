@@ -1,0 +1,19 @@
+{
+ "항목": [
+  {
+   "id": "단면틀",
+   "가설": "두 뷰 헐의 높이별 단면을 직사각형 대신 그 안에 꽉 차는 초타원으로 채우면, 실루엣은 그대로이고 부피 IoU 가 오른다(크리처 머리·귀는 둥근 단면).",
+   "반증": "개발 과제(씨앗 700~705)에서 어떤 후보도 평균 부피 +0.05 를 못 넘거나, 넘어도 평균 실루엣이 0.01 넘게 떨어지면 거짓. 개발만 통과하고 확인 과제(M0 600~605)에서 떨어지면 과적합.",
+   "기준": {"부피_차": 0.05, "실루엣_차": -0.01},
+   "개발": ["dev_basic", "dev_hue", "dev_twotone", "dev_checker", "dev_hardbg", "dev_outline"],
+   "확인": ["synth_basic", "synth_hue", "synth_twotone", "synth_checker", "synth_hardbg", "synth_outline"],
+   "후보": [
+    {"이름": "본체_타원", "계열": "본체단면", "설정": {"body": {"method": "hull", "section_n": 2.0, "smooth": 1.5}}},
+    {"이름": "본체_초타원2.5", "계열": "본체단면", "실루엣_보호": true, "설정": {"body": {"method": "hull", "section_n": 2.5, "smooth": 1.5}}},
+    {"이름": "본체_초타원3", "계열": "본체단면", "실루엣_보호": true, "설정": {"body": {"method": "hull", "section_n": 3.0, "smooth": 1.5}}},
+    {"이름": "본체_타원_덜다듬기", "계열": "본체단면", "실루엣_보호": true, "설정": {"body": {"method": "hull", "section_n": 2.0, "smooth": 0.8}}},
+    {"이름": "전부_타원", "계열": "전부단면", "설정": {"body": {"method": "hull", "section_n": 2.0, "smooth": 1.5}, "parts": {"*": {"method": "hull", "section_n": 2.0, "smooth": 1.0}}}}
+   ]
+  }
+ ]
+}

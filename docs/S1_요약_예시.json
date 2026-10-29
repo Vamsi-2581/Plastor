@@ -1,0 +1,52 @@
+{
+ "걸음_수": 8,
+ "시작_오차": {
+  "코끝_lat": -0.26,
+  "코끝_z": -0.07666666666666666,
+  "주둥이폭": 0.3866666666666667
+ },
+ "최종_오차": {
+  "코끝_lat": 0.0,
+  "코끝_z": -0.0033333333333334103,
+  "주둥이폭": 0.0
+ },
+ "시작_매개변수": {
+  "CTRL_코끝.dy": -0.2999999523162842,
+  "CTRL_코끝.dz": 0.25,
+  "LATTICE_주둥이.sx": 0.5
+ },
+ "최종_매개변수": {
+  "CTRL_코끝.dy": 0.0008504390716552734,
+  "CTRL_코끝.dz": -0.0030972957611083984,
+  "LATTICE_주둥이.sx": 0.034435153007507324
+ },
+ "실제_이동량": {
+  "CTRL_코끝.dy": 0.30085039138793945,
+  "CTRL_코끝.dz": -0.2530972957611084,
+  "LATTICE_주둥이.sx": -0.4655648469924927
+ },
+ "대상밖_띠_최대_증가": 0.0,
+ "IoU_전→후": {
+  "IoU옆": [
+   0.9154378481226312,
+   0.9994171779141104
+  ],
+  "IoU정면": [
+   0.892829373650108,
+   0.9991057401812689
+  ]
+ },
+ "최종_vhash": "a771f73b6e1656c7",
+ "시작_vhash": "3912a7526510f3ff",
+ "체크포인트": [
+  "C:/Users/ADMINI~1/AppData/Local/Temp/claude/E------Projects-ModelerHarness/d11ede22-512f-4c7e-be53-f4625a98882d/scratchpad/dbgtmp\\r\\step01.blend",
+  "C:/Users/ADMINI~1/AppData/Local/Temp/claude/E------Projects-ModelerHarness/d11ede22-512f-4c7e-be53-f4625a98882d/scratchpad/dbgtmp\\r\\step02.blend",
+  "C:/Users/ADMINI~1/AppData/Local/Temp/claude/E------Projects-ModelerHarness/d11ede22-512f-4c7e-be53-f4625a98882d/scratchpad/dbgtmp\\r\\step03.blend",
+  "C:/Users/ADMINI~1/AppData/Local/Temp/claude/E------Projects-ModelerHarness/d11ede22-512f-4c7e-be53-f4625a98882d/scratchpad/dbgtmp\\r\\step04.blend",
+  "C:/Users/ADMINI~1/AppData/Local/Temp/claude/E------Projects-ModelerHarness/d11ede22-512f-4c7e-be53-f4625a98882d/scratchpad/dbgtmp\\r\\step05.blend",
+  "C:/Users/ADMINI~1/AppData/Local/Temp/claude/E------Projects-ModelerHarness/d11ede22-512f-4c7e-be53-f4625a98882d/scratchpad/dbgtmp\\r\\step06.blend",
+  "C:/Users/ADMINI~1/AppData/Local/Temp/claude/E------Projects-ModelerHarness/d11ede22-512f-4c7e-be53-f4625a98882d/scratchpad/dbgtmp\\r\\step07.blend",
+  "C:/Users/ADMINI~1/AppData/Local/Temp/claude/E------Projects-ModelerHarness/d11ede22-512f-4c7e-be53-f4625a98882d/scratchpad/dbgtmp\\r\\step08.blend"
+ ],
+ "걸린_시간_초": 18.67
+}

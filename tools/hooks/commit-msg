@@ -1,0 +1,21 @@
+#!/bin/sh
+# 추적(docs/추적_체계.md): R-014
+# 완료 관문: 커밋 메시지 첫 줄에 '루프 <항목> 완료' 또는 '루프 항목 <항목> 완료' 가 있으면
+# mh trace_check {"항목": <항목>} 가 PASS 여야 커밋된다(채택했는데 안 만들었거나, 시험 PASS 증거가 없거나 낡으면 막음).
+# 켜기: git config core.hooksPath tools/hooks   끄기: git config --unset core.hooksPath
+first=$(head -n 1 "$1")
+item=$(printf '%s\n' "$first" | sed -n 's/.*루프 \(항목 \)\{0,1\}\([^ :]*\) 완료.*/\2/p')
+[ -z "$item" ] && exit 0
+root=$(git rev-parse --show-toplevel)
+MH="$root/rust/target/release/mh.exe"
+[ -x "$MH" ] || MH="$root/rust/target/release/mh"
+out=$(cd "$root" && "$MH" trace_check "{\"항목\": \"$item\"}")
+code=$?
+if [ "$code" -ne 0 ]; then
+  echo "커밋 막음: 루프 $item 완료 관문이 PASS 가 아님(끝 코드 $code). 장부 trace/registry.json 에 그 자리 항목을 적고, mh trace_verify 로 증거를 남기세요." >&2
+  printf '%s\n' "$out" | head -c 2000 >&2
+  echo >&2
+  exit 1
+fi
+echo "완료 관문 PASS: 루프 $item" >&2
+exit 0

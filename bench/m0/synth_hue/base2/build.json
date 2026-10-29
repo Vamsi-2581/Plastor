@@ -1,0 +1,36 @@
+{
+ "out": ".",
+ "frame": {
+  "meta": "../meta.json"
+ },
+ "trace": {
+  "spec": "../spec.json"
+ },
+ "body": {
+  "part": "머리",
+  "method": "round",
+  "smooth": 1.5,
+  "cesn": 20
+ },
+ "parts": [
+  {
+   "name": "귀",
+   "embed_px": 4
+  },
+  {
+   "name": "뿔",
+   "method": "round",
+   "embed_px": 8,
+   "cesn": 20
+  },
+  {
+   "name": "뿔 밑동",
+   "method": "round",
+   "embed_px": 8,
+   "cesn": 20
+  }
+ ],
+ "merge": {
+  "ratio": 0.06
+ }
+}

@@ -1,0 +1,1780 @@
+[
+ {
+  "id": "R-001",
+  "조사": "부위를 기본 도형(타원체·관·판)으로 두고 SDF 로 합쳐 한 번에 표면을 뽑는다(Dreams, Media Molecule SIGGRAPH 2015)",
+  "출처": [
+   "docs/조사_업계관행.md",
+   "docs/진단_방향재검토.md",
+   "https://advances.realtimerendering.com/s2015/AlexEvans_SIGGRAPH-2015-sml.pdf"
+  ],
+  "상태": "채택",
+  "근거": "루프 항목 4: 합성 확인 과제 부피 0.916 대 기준선 0.595, 몸 1 이 11/12(수정_기록 50). 실제 들소 도면은 FAIL(범위 = 합성)",
+  "자리": "K2",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ],
+  "구현": [
+   "rust/src/fit.rs"
+  ],
+  "시험": [
+   "tests/selftest_rust_fit.py"
+  ],
+  "대체": "R-030"
+ },
+ {
+  "id": "R-002",
+  "조사": "원형 기록을 그대로 편집 가능한 Blender 객체(타원체·커브 관)로 내보내 사람이 슬라이더로 고친 뒤 다시 맞춘다(Dreams 의 편집 기록)",
+  "출처": [
+   "docs/조사_업계관행.md"
+  ],
+  "상태": "채택",
+  "근거": "업계관행 2장 2번, 통합 계획 K7(A15·A19). 아직 만들지 않음",
+  "자리": "8",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ]
+ },
+ {
+  "id": "R-003",
+  "조사": "부위끼리 만나는 곳은 부드러운 합집합(smooth min)으로 잇는다(Quilez)",
+  "출처": [
+   "docs/조사_업계관행.md",
+   "https://iquilezles.org/articles/smin"
+  ],
+  "상태": "채택",
+  "근거": "루프 항목 4c PASS: 확인 과제 부피 −0.0002, 거칠기 2.71 → 2.00°(수정_기록 52). 기본 0.03H",
+  "자리": "K2",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ],
+  "구현": [
+   "rust/src/fit.rs"
+  ],
+  "시험": [
+   "tests/selftest_rust_fit.py"
+  ]
+ },
+ {
+  "id": "R-004",
+  "조사": "애니메이션을 몸 구조와 무관한 형태로 저장해 아무 몸에나 옮긴다(Spore, Hecker 외 SIGGRAPH 2008)",
+  "출처": [
+   "docs/조사_업계관행.md"
+  ],
+  "상태": "대기",
+  "근거": "요약만 확인(원문 미확인). 리깅·트래킹 단계에서 정함",
+  "자리": "K9"
+ },
+ {
+  "id": "R-005",
+  "조사": "몸 계획(body plan)에 따라 뼈대 구조를 함께 고른다(No Man's Sky, GDC 2015)",
+  "출처": [
+   "docs/조사_업계관행.md"
+  ],
+  "상태": "대기",
+  "근거": "기사로만 확인. 원문 확인 뒤 K7 뼈대 템플릿 후보",
+  "자리": "8"
+ },
+ {
+  "id": "R-006",
+  "조사": "리토폴로지는 Blender 내장 QuadriFlow, 사각면 비율·특이점 수로 판정",
+  "출처": [
+   "docs/조사_업계관행.md",
+   "docs/구현계획_통합.md",
+   "https://stanford.edu/~jingweih/papers/quadriflow/"
+  ],
+  "상태": "채택",
+  "근거": "통합 계획 K7 기준(사각면 ≥ 0.95, 실루엣 하락 ≤ 0.01). 아직 만들지 않음",
+  "자리": "8",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ]
+ },
+ {
+  "id": "R-007",
+  "조사": "리깅 준비 검사에 관절을 정해진 각도로 굽혀 늘어남·뒤집힌 면을 재는 자동 굽힘 시험",
+  "출처": [
+   "docs/조사_업계관행.md"
+  ],
+  "상태": "채택",
+  "근거": "토폴로지 실무 관행(강좌·포럼, 확인 정도 약함)을 루프 항목 8 에 넣음. 아직 만들지 않음",
+  "자리": "8",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ]
+ },
+ {
+  "id": "R-008",
+  "조사": "정점당 영향 뼈 ≤ 4, glTF 내보내기, Godot 로드 확인",
+  "출처": [
+   "docs/조사_업계관행.md",
+   "docs/구현계획_통합.md"
+  ],
+  "상태": "채택",
+  "근거": "glTF 2.0 기본 4개(요약만). K7 내보내기 기준. 아직 만들지 않음",
+  "자리": "8",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ]
+ },
+ {
+  "id": "R-009",
+  "조사": "스케치 → 3D 는 모호해서 해석 방식으로 나눠야 한다(Olsen 외 2009 조사 논문)",
+  "출처": [
+   "docs/조사_업계관행.md"
+  ],
+  "상태": "대기",
+  "근거": "해석 층(도면 요소 5분류)의 배경. 5분류 구현 때 정함",
+  "자리": "6"
+ },
+ {
+  "id": "R-010",
+  "조사": "3D 로 옮길 때 형태 언어와 실루엣 읽힘을 세부보다 먼저 본다",
+  "출처": [
+   "docs/조사_업계관행.md"
+  ],
+  "상태": "대기",
+  "근거": "1차 출처 못 찾음(약함). K6 아트 항목 후보",
+  "자리": "K6"
+ },
+ {
+  "id": "R-011",
+  "조사": "LLM 은 여러 시점을 3D 로 합치지 못한다 → 도구가 잰 숫자 요약(인지 지도)을 글로 준다(MultiView-Bench·Ego3D-Bench)",
+  "출처": [
+   "docs/조사_LLM한계.md",
+   "docs/진단_방향재검토.md"
+  ],
+  "상태": "채택",
+  "근거": "digest 를 만들어 시험 PASS(selftest_aids). MCP observe_digest 로도",
+  "자리": "K0",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ],
+  "구현": [
+   "harness/llm_aids.py",
+   "rust/src/mcp.rs"
+  ],
+  "시험": [
+   "tests/selftest_aids.py",
+   "tests/selftest_mcp.py"
+  ]
+ },
+ {
+  "id": "R-012",
+  "조사": "작은 부위·세기는 약하다 → 부위 이름으로 원래 해상도 확대(zoom), 세기는 digest 숫자로",
+  "출처": [
+   "docs/조사_LLM한계.md"
+  ],
+  "상태": "채택",
+  "근거": "도구는 만듦(selftest_aids PASS). 단 K0 기준 3(zoom 이득 +0.2)은 FAIL — 0.5배 귀도 전체 그림으로 다 보여 이득 없음. 도구는 값싸서 둠",
+  "자리": "K0",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ],
+  "구현": [
+   "harness/llm_aids.py",
+   "rust/src/mcp.rs"
+  ],
+  "시험": [
+   "tests/selftest_aids.py",
+   "tests/selftest_mcp.py"
+  ]
+ },
+ {
+  "id": "R-013",
+  "조사": "LLM 은 정밀한 수·좌표를 틀린다 → LLM 은 연산 종류·이름만, 숫자는 결정적 풀이기(Embodied CAD·CADSmith·BenchCAD)",
+  "출처": [
+   "docs/조사_LLM한계.md",
+   "docs/진단_방향재검토.md"
+  ],
+  "상태": "채택",
+  "근거": "보라 삼각형 좌표 실패(관찰). MCP 행동 도구가 좌표 인자를 거부하고 맞추기가 숫자를 정함(selftest_mcp 나-5)",
+  "자리": "4e",
+  "설계": [
+   "docs/루프_작업목록.md"
+  ],
+  "구현": [
+   "rust/src/mcp.rs"
+  ],
+  "시험": [
+   "tests/selftest_mcp.py"
+  ]
+ },
+ {
+  "id": "R-014",
+  "조사": "LLM 은 스스로 검증하지 못하고 거짓 완료를 한다 → 완료 주장마다 실행한 판정 증거를 요구하는 검사기(CRITIC·ProgCo)",
+  "출처": [
+   "docs/조사_LLM한계.md"
+  ],
+  "상태": "채택",
+  "근거": "사용자 지적(조사가 구현에 반영됐는지 추적 안 함)과 합쳐 추적 체계로 구현: 채택 항목은 시험 PASS 증거가 있어야 반영됨, 완료 커밋은 관문",
+  "자리": "4f",
+  "설계": [
+   "docs/추적_체계.md"
+  ],
+  "구현": [
+   "rust/src/trace.rs",
+   "tools/hooks/commit-msg"
+  ],
+  "시험": [
+   "tests/selftest_traceability.py"
+  ]
+ },
+ {
+  "id": "R-015",
+  "조사": "판정은 위치 편향이 있고 안정 ≠ 옳음 → 순서 바꿈·두 가족·재현율·카파를 따로 재는 judge 모음기",
+  "출처": [
+   "docs/조사_LLM한계.md"
+  ],
+  "상태": "채택",
+  "근거": "judge 시험 PASS(selftest_aids), MCP judge(selftest_mcp 나-9)",
+  "자리": "K0",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ],
+  "구현": [
+   "harness/llm_aids.py",
+   "rust/src/mcp.rs"
+  ],
+  "시험": [
+   "tests/selftest_aids.py",
+   "tests/selftest_mcp.py"
+  ]
+ },
+ {
+  "id": "R-016",
+  "조사": "두 모델 가족이 같다고 옳은 것은 아니다(실수가 닮아 감, Great Models Think Alike ICML 2025) → 정답 있는 합성 문항으로 능력을 먼저 잰다",
+  "출처": [
+   "docs/진단_방향재검토.md",
+   "docs/조사_LLM한계.md"
+  ],
+  "상태": "채택",
+  "근거": "K0 측정을 정답 있는 합성으로 함(bench/k0.py). Codex 답 대기 중이라 아직 판정 없음",
+  "자리": "5",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ]
+ },
+ {
+  "id": "R-017",
+  "조사": "긴 작업에서 목표를 잊고 거짓 완료 → 단계 카드 한 장씩·상태 파일·루프 엔진",
+  "출처": [
+   "docs/조사_LLM한계.md"
+  ],
+  "상태": "채택",
+  "근거": "단계 카드 시험 PASS(selftest_model). 루프 엔진은 Rust 로 옮길 예정(사용자 제안)",
+  "자리": "K4",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ],
+  "구현": [
+   "model_loop.py"
+  ],
+  "시험": [
+   "tests/selftest_model.py"
+  ]
+ },
+ {
+  "id": "R-018",
+  "조사": "MCP 로 Blender 를 모는 비평 루프는 3바퀴쯤에서 더 나아지지 않는다(Planner-Actor-Critic) → 같은 관문 FAIL 3번이면 행동을 막고 조사",
+  "출처": [
+   "docs/조사_색인.md",
+   "https://arxiv.org/pdf/2601.05016"
+  ],
+  "상태": "채택",
+  "근거": "MCP 서버 FAIL_LIMIT 3, 막힘 시험 PASS(selftest_mcp 나-6)",
+  "자리": "4e",
+  "설계": [
+   "docs/루프_작업목록.md"
+  ],
+  "구현": [
+   "rust/src/mcp.rs"
+  ],
+  "시험": [
+   "tests/selftest_mcp.py"
+  ]
+ },
+ {
+  "id": "R-019",
+  "조사": "도구 추가는 설명문만으로(CAD-Assistant: LLM + 정해진 도구 + 실행 되먹임)",
+  "출처": [
+   "docs/조사_색인.md",
+   "https://arxiv.org/abs/2412.13810v1"
+  ],
+  "상태": "채택",
+  "근거": "MCP tools/list 설명과 입력 형식만으로 도구를 씀(selftest_mcp 가)",
+  "자리": "4e",
+  "설계": [
+   "docs/루프_작업목록.md"
+  ],
+  "구현": [
+   "rust/src/mcp.rs"
+  ],
+  "시험": [
+   "tests/selftest_mcp.py"
+  ]
+ },
+ {
+  "id": "R-020",
+  "조사": "자산을 부위별 모듈 코드로 두고 비평 에이전트가 렌더를 보고 고칠 곳을 돌려준다(LL3M)",
+  "출처": [
+   "docs/조사_색인.md"
+  ],
+  "상태": "대기",
+  "근거": "부위 그래프·비평 단계에서 정함",
+  "자리": "K6"
+ },
+ {
+  "id": "R-021",
+  "조사": "LLM 에 Blender 문서 검색을 붙인다(BlenderRAG)",
+  "출처": [
+   "docs/조사_색인.md",
+   "https://arxiv.org/pdf/2605.00632"
+  ],
+  "상태": "대기",
+  "근거": "지금 기억 도구는 교훈 검색뿐. 교훈 검색 개선(I04) 때 정함",
+  "자리": "K8"
+ },
+ {
+  "id": "R-022",
+  "조사": "Anthropic 공식 Blender 연결기(2026-04)",
+  "출처": [
+   "docs/조사_색인.md"
+  ],
+  "상태": "대기",
+  "근거": "지금 쓰는 MCP for Blender 와 원격 전송·기능 비교 필요(J01)",
+  "자리": "곁가지"
+ },
+ {
+  "id": "R-024",
+  "조사": "해부 규칙 검사기: 규칙은 JSON(출처·확신), 해부 사실과 데포르메 의도를 나눠 스타일 범위 밖만 위반",
+  "출처": [
+   "docs/해부학_도구_조사.md"
+  ],
+  "상태": "채택",
+  "근거": "루프 항목 4b (가) PASS: 망친 모델 3종 모두 잡고 정상 위반 0(selftest_anatomy). 들소 (나) 는 FAIL(보류)",
+  "자리": "4b",
+  "설계": [
+   "docs/루프_작업목록.md"
+  ],
+  "구현": [
+   "rust/src/anatomy.rs"
+  ],
+  "시험": [
+   "tests/selftest_anatomy.py"
+  ]
+ },
+ {
+  "id": "R-025",
+  "조사": "사람 해부 MCP(Anatomy Engine)",
+  "출처": [
+   "docs/해부학_도구_조사.md"
+  ],
+  "상태": "기각",
+  "근거": "사람 전용, 자리표시 값, 검수 안 된 데이터",
+  "다시_볼_조건": "동물 해부판이 나오고 데이터가 검수됐을 때"
+ },
+ {
+  "id": "R-026",
+  "조사": "외부 Blender MCP 3종(DCC-MCP·Blender Copilot·Blender AI MCP)",
+  "출처": [
+   "docs/해부학_도구_조사.md"
+  ],
+  "상태": "기각",
+  "근거": "폐루프 보정이 없음, 사람 아바타용·중단됨",
+  "다시_볼_조건": "도면 비교 되먹임을 갖춘 판이 나올 때"
+ },
+ {
+  "id": "R-027",
+  "조사": "기준 동물 여러 마리를 PCA 로 섞는 체형 템플릿(Morph)",
+  "출처": [
+   "docs/해부학_도구_조사.md"
+  ],
+  "상태": "보류",
+  "근거": "Blender 2.82·sklearn·라이선스 없음·메시 없음. 아이디어만",
+  "다시_볼_조건": "체형 템플릿 연구를 시작할 때(K8 이후)"
+ },
+ {
+  "id": "R-028",
+  "조사": "Rigger(4족·말·새 템플릿, GPL-3.0)·Rigify 로 리깅",
+  "출처": [
+   "docs/해부학_도구_조사.md"
+  ],
+  "상태": "대기",
+  "근거": "조건부: 모델이 안정된 뒤 격리 환경에서 시험, GPL 이라 번들 금지",
+  "자리": "8"
+ },
+ {
+  "id": "R-029",
+  "조사": "MuSkeMo·Z-Anatomy veterinary 를 해부 자료로",
+  "출처": [
+   "docs/해부학_도구_조사.md"
+  ],
+  "상태": "보류",
+  "근거": "생체역학 목적·라이선스 없음·종 범위 미확인",
+  "다시_볼_조건": "라이선스·종 범위가 확인될 때"
+ },
+ {
+  "id": "R-030",
+  "조사": "두 뷰 헐(실루엣 교집합)을 본체 생성의 중심으로",
+  "출처": [
+   "docs/진단_방향재검토.md"
+  ],
+  "상태": "기각",
+  "근거": "실루엣 0.92~0.97 인데 부피 0.39~0.63, 단면이 직사각형(관찰)",
+  "다시_볼_조건": "없음(원형 맞추기 R-001 이 대체)"
+ },
+ {
+  "id": "R-031",
+  "조사": "둥근 헐(쓸기 + 실루엣 채우기)·고리 케이지 확장·fitloop 핸들 다듬기·표면 다듬기 5종",
+  "출처": [
+   "docs/진단_방향재검토.md"
+  ],
+  "상태": "기각",
+  "근거": "정답 뿔의 47~49% 만 덮음, 들소 다듬기 이득 없음(0.918→0.914)",
+  "다시_볼_조건": "없음"
+ },
+ {
+  "id": "R-032",
+  "조사": "실루엣 IoU 만으로 판정하지 않는다(SAUCD·Pix3D: IoU 높아도 사람 눈엔 나쁨) → 3D 부피·거칠기·3/4 폭 비·몸 수",
+  "출처": [
+   "docs/진단_방향재검토.md"
+  ],
+  "상태": "채택",
+  "근거": "K1 채점기(Rust score) 시험 PASS",
+  "자리": "K1",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ],
+  "구현": [
+   "rust/src/score.rs"
+  ],
+  "시험": [
+   "tests/selftest_rust_score.py"
+  ]
+ },
+ {
+  "id": "R-033",
+  "조사": "옆 한 장 동물 스케치를 부위 윤곽·좌우 짝·암시 곡면 합치기로 복원(Entem 2015) → 부위로 나누고 짝은 거울",
+  "출처": [
+   "docs/진단_방향재검토.md"
+  ],
+  "상태": "채택",
+  "근거": "맞추기의 부위별 원형 + 짝 거울(4b 에서 귀 2·뿔 대칭)",
+  "자리": "K2",
+  "설계": [
+   "docs/구현계획_통합.md"
+  ],
+  "구현": [
+   "rust/src/fit.rs"
+  ],
+  "시험": [
+   "tests/selftest_rust_fit.py"
+  ]
+ },
+ {
+  "id": "R-034",
+  "조사": "단안 깊이 추정(Depth Anything V2 Small, CPU)으로 정면 깊이 근거",
+  "출처": [
+   "docs/루프_작업목록.md",
+   "https://huggingface.co/depth-anything/Depth-Anything-V2-Small-hf"
+  ],
+  "상태": "보류",
+  "근거": "루프 항목 4d: 전체 순위 상관 0.659 FAIL, 부위 안 0.84·0.83 PASS. 맞추기 깊이 항으로 들소 옆 실루엣 0.850→0.895 이나 머리 얇은 판 그대로(FAIL). 선택 인자로만 남김",
+  "다시_볼_조건": "타원체마다 깊이 상관을 따로 재거나 머리를 1~2 타원체로 제한할 때(4b/4d 단서)"
+ },
+ {
+  "id": "R-035",
+  "조사": "긴 작업에서 LLM 은 목표를 잊고 규칙을 건너뛴다(W7) → 루프 분기 규칙을 글이 아니라 Rust 상태 기계로, 판정은 엔진이 기준 명령을 돌려서",
+  "출처": [
+   "docs/조사_LLM한계.md",
+   "docs/루프_작업목록.md"
+  ],
+  "상태": "채택",
+  "근거": "사용자 제안(\"러스트 자체를 비선형 분기 조건부 루프 엔지니어링처럼\"). 가짜 명령 계획에서 모든 분기 시험 PASS(selftest_loop 17/17)",
+  "자리": "4g",
+  "설계": [
+   "docs/루프_작업목록.md"
+  ],
+  "구현": [
+   "rust/src/loopeng.rs"
+  ],
+  "시험": [
+   "tests/selftest_loop.py"
+  ]
+ },
+ {
+  "id": "R-101",
+  "조사": "고리 케이지 로프트(높이별 고리 + 초타원 단면, 반쪽 케이지 → Mirror → 닫힌 메시)를 형상 골격으로 쓴다 (generalized cylinder / loft / sweep)",
+  "출처": [
+   "docs/조사_보고서.md"
+  ],
+  "상태": "채택",
+  "근거": "조사_보고서 D절 기술 표가 'Generalized cylinders / Loft / Sweep / Cross-section' 을 '채택(기존 코드)' 로, 고리 로프트+초타원을 '끝남' 으로 적었다. 보고서 I절: 바꾸지 않아도 되는 것에 '케이지 로프트 + Mirror 골격' 포함.",
+  "다시_볼_조건": null,
+  "자리": null,
+  "구현": [
+   "harness/cage.py",
+   "harness/ops.py"
+  ],
+  "시험": [
+   "tests/selftest_ringcage.py"
+  ],
+  "구현_근거": "harness/cage.py 상단 docstring '고리 케이지: 매개변수 → 정점·면 (좌우 대칭, 닫힘)' 과 초타원 단면식, harness/ops.py 의 op_init·op_fit·op_snap. tests/selftest_ringcage.py 는 1단계(고리 케이지, G0~G4 관문) 시험(CLAUDE.md 명령 절)."
+ },
+ {
+  "id": "R-102",
+  "조사": "측정값을 잔차로 삼아 형상 파라미터를 수치 최적화로 푼다(분석-합성, LLM 호출 0회). 측정기를 조형 앞에 둔다",
+  "출처": [
+   "docs/조사_보고서.md",
+   "docs/설계_LLM_3D모델러.md"
+  ],
+  "상태": "채택",
+  "근거": "조사_보고서 D절이 'Analysis-by-synthesis / Inverse graphics: 채택(경량판)', 'Mesh optimization: 채택(약하게)', 'C(최적화 > LLM 직접 정점): 참' 으로 적었고 I절 2번이 '측정기를 조형 앞에 둔다' 를 권고. 설계_LLM_3D모델러 2.3 표는 실루엣 → 메시 최적화에 'fitloop(핸들 이동) 있음' 이라 적었다. 보고서가 제안한 고리 케이지 솔버(fit_cage.py) 자체는 못 찾았고, 같은 원리의 맞추기가 Rust mh fit 으로 구현돼 있다(루프_작업목록 4: 합성 확인 과제 부피 0.916 대 ② 0.595).",
+  "다시_볼_조건": null,
+  "자리": "루프 4",
+  "구현": [
+   "rust/src/fit.rs"
+  ],
+  "시험": [
+   "tests/selftest_rust_fit.py"
+  ],
+  "구현_근거": "rust/src/fit.rs 의 fit_all(482행)·descend(437행)가 도면 마스크 잔차로 원형 연산자 파라미터를 푼다. 보고서의 고리 케이지용 솔버(fit_cage.py)는 저장소에서 못 찾았으므로 같은 원리의 다른 구현으로 연결함."
+ },
+ {
+  "id": "R-103",
+  "조사": "LLM 은 좌표·정점 값을 쓰지 않고 이름·범위·선택만 주며, 정해진 도구를 불러 재고 다시 본다 (Visual Sketchpad, 3DHarnessBench, BlenderGym, CADCodeVerify)",
+  "출처": [
+   "docs/조사_보고서.md",
+   "docs/설계_LLM_3D모델러.md",
+   "docs/자유조사_2026-10-29.md",
+   "https://neurips.cc/virtual/2024/102102",
+   "https://arxiv.org/abs/2609.06535",
+   "https://arxiv.org/abs/2504.01786"
+  ],
+  "상태": "채택",
+  "근거": "조사_보고서 I절 1번 'LLM이 좌표를 적는 일을 금지한다', 설계_LLM_3D모델러 1절 설계 원칙 'LLM 은 좌표를 쓰지 않는다'. 자유조사: Visual Sketchpad 는 좌표 그리기가 아니라 도구 호출이 핵심이라 우리가 겪은 좌표 그리기 약함과 맞는다, 3DHarnessBench 는 접근을 늘릴수록 모든 최신 모델이 좋아져 '도구로 재고 다시 본다' 방향의 근거, BlenderGym 은 생성기-검증기 고리에서 검증기 쪽에 추론을 더 쓰는 것이 효과, CADCodeVerify 는 카드·결정 구조와 같다고 적었다.",
+  "다시_볼_조건": null,
+  "자리": "루프 4e",
+  "구현": [
+   "rust/src/mcp.rs",
+   "harness/api.py"
+  ],
+  "시험": [
+   "tests/selftest_mcp.py",
+   "tests/selftest_api.py"
+  ],
+  "구현_근거": "rust/src/mcp.rs 의 reject_coords(44행)와 RULES_TEXT 규칙 2(좌표 금지), harness/api.py 상단 docstring 6행 '좌표·정점 값을 받는 도구는 없다'. tests/selftest_mcp.py 의 (나-5) 좌표 인자를 거부, tests/selftest_api.py 도구 층."
+ },
+ {
+  "id": "R-104",
+  "조사": "셀 셰이딩 톤 띠(색면) 경계를 같은 밝기 선으로 보고 빛 방향·법선·단면 곡선을 복원한다 (Inverse Toon Shading, CrossShade, Lumo, Li 2020 단면 곡선 입력) + 이름 → 단면 틀",
+  "출처": [
+   "docs/조사_보고서.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://diglib.eg.org/items/335bb5ff-ef86-4ce1-909a-6f38e3a00291/full",
+   "https://hal-univ-tlse3.archives-ouvertes.fr/INRIA/hal-00703202",
+   "https://eprints.bournemouth.ac.uk/34801"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표가 Inverse Toon Shading·CrossShade·Lumo 를 R1.5 크로스 컨투어 추론 자리로 적었다. 조사_보고서 D절은 평평한 색면(셀 셰이딩 명도 3단)이 3D 면 방향 단서인데 어느 코드도 쓰지 않는다고 적었고, Li 2020 은 단면 곡선을 별도 입력으로 쓰는 근거라고 적었다. 설계_LLM_3D모델러 R1.5 채택 기준: 합성 장면에서 복원 법선 각 오차 중앙값 ≤ 15°.",
+  "다시_볼_조건": null,
+  "자리": "R1.5",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-105",
+  "조사": "일반화 원통(뼈대 곡선 + 단면 반지름 함수 + 타원 단면 + 3차 B-스플라인)으로 두 정사영 도면에서 매끈한 메시를 바로 만든다 (Huang·Xie·Fukusato 2022, Karpenko 2004)",
+  "출처": [
+   "docs/조사_보고서.md",
+   "docs/조사_매끈한형상.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/abs/2201.11284",
+   "https://cs.brown.edu/~jhughes/papers/Karpenko-EMF-2004/paper.pdf"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표가 Huang 2022 일반화 원통을 R1 매끈한 형상 자리로 적었다. 조사_보고서는 같은 항목을 '채택(재구현)' 이라 적었으나 색인은 아직 안 쓴 조사로 분류하므로 색인을 따른다. 조사_매끈한형상 3절 적용안 1이 반증 조건(합성 휜 뿔 새 씨앗 8개에서 실루엣 ≥ 0.98, 부피 IoU ≥ 둥근 헐 0.80 안팎, 거칠기 ≤ 5°)을 돌리기 전에 정했다.",
+  "다시_볼_조건": null,
+  "자리": "R1",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-106",
+  "조사": "변분 암시 곡면(RBF)과 가시성 제약 표면 진화로 헐 안에서 매끈하고 윤곽에는 닿는 곡면을 만든다 (Turk·O'Brien, UCSD)",
+  "출처": [
+   "docs/조사_매끈한형상.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://www.cs.princeton.edu/courses/archive/spr00/cs598b/lectures/implicit/tsld048.htm",
+   "https://vision.ucsd.edu/sites/default/files/publications/pdfs/Visibility%20Constrained%20Surface%20Evolution.pdf"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표가 변분 암시 곡면을 R1 매끈한 형상 자리로 적었다. 조사_매끈한형상 3절 적용안 2: 일반화 원통이 안 맞는 덩어리(가지가 여럿인 본체)용 대안, 같은 기준. 설계_LLM_3D모델러 2.3 표는 '조사만' 이라 적었다.",
+  "다시_볼_조건": null,
+  "자리": "R1",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-107",
+  "조사": "비주얼 헐의 단면 사전(Kim·Ruttle·Dahyot 2013, Tai 2004)과 제한 탄성 표면망(Gibson 1998): 타원 단면 쓸기 + 둥근 헐 + 제한 이완, 3/4 상자 단면 진단",
+  "출처": [
+   "docs/조사_매끈한형상.md",
+   "docs/자유조사_2026-10-29.md",
+   "docs/조사_보고서.md",
+   "https://diglib.eg.org/items/b9a6e416-b98c-4261-bc12-a64c135f7a89",
+   "https://mural.maynoothuniversity.ie/15118/1/RD_bayesian.pdf"
+  ],
+  "상태": "채택",
+  "근거": "조사_색인 '이미 하네스에 들어간 조사' 표: 비주얼 헐 단면 사전·제한 탄성 표면망 → 둥근 헐 + 제한 이완, 결과 들소 머리 0.941→0.985. 조사_매끈한형상 1절은 복셀로 되돌리는 단계가 표면 계단의 원인이라고 진단했고, 그 한계는 R1 로 이어진다. 조사_보고서 D절은 실루엣만의 visual hull 이 3/4 에서 상자가 된다고 적어 단면 사전이 필수라 했다.",
+  "다시_볼_조건": null,
+  "자리": "수정_기록 30",
+  "구현": [
+   "harness/sweep.py",
+   "harness/hull.py",
+   "harness/model_check.py"
+  ],
+  "시험": [
+   "tests/selftest_model.py"
+  ],
+  "구현_근거": "harness/sweep.py 의 build_round_hull(162행)과 constrained_relax(144행, docstring 에 Gibson 1998 인용, cesn 인자), harness/hull.py 의 section_fill(19행, 단면 사전), harness/model_check.py 의 BOX_FILL 단면 채움비로 '상자 단면' 진단(18·224행). tests/selftest_model.py 단면 둥근 관/상자 관 진단(58행)과 둥근 헐 시험(117행), bench/sweep_bench.py 휜 둥근 뿔 합성 시험.",
+  "측정": [
+   "bench/sweep_bench.py"
+  ]
+ },
+ {
+  "id": "R-108",
+  "조사": "정면·옆·뒤 실루엣 교집합(visual hull)을 직접 구현해 초기값·상한 확인용 보조 경로로 쓴다 (python-visual-hull, shape_from_silhouettes)",
+  "출처": [
+   "docs/조사_보고서.md"
+  ],
+  "상태": "채택",
+  "근거": "조사_보고서 C절: 'Visual hull 구현들: 직접 쓰는 편이 쉬움(numpy 40줄, 0.43초)', D절 판정 '보조'. 같은 보고서의 실측으로 3/4 에서 상자가 되는 한계가 확인돼 단독 경로는 아니다(h=4.8 에서 3/4 폭 2.07H = 상자 공식값 2.07). 저장소에 직접 구현이 있다.",
+  "다시_볼_조건": null,
+  "자리": null,
+  "구현": [
+   "harness/hull.py",
+   "rust/src/hull.rs"
+  ],
+  "시험": [
+   "tests/selftest_rust.py",
+   "tests/selftest_model.py"
+  ],
+  "구현_근거": "harness/hull.py 의 build_hull(41행), rust/src/hull.rs 의 build_hull(131행). tests/selftest_rust.py 가 파이썬 build_hull 과 mh hull 을 대조(88·91행), tests/selftest_model.py 5c 가 build_hull 을 둥근 헐과 비교(112행)."
+ },
+ {
+  "id": "R-109",
+  "조사": "부위마다 정면·옆·위 실루엣으로 헐을 만들고 CSG(Boolean)로 합친다 + 뷰끼리 실루엣 일관성(높이 일치 H, 좌우 일치 LR) 검사 (Rivers·Durand·Igarashi 2010)",
+  "출처": [
+   "docs/조사_보고서.md",
+   "docs/자유조사_2026-10-29.md",
+   "docs/트레이싱_조사.md",
+   "docs/무료도구_조사.md",
+   "https://www-ui.is.s.u-tokyo.ac.jp/~takeo/papers/alec_siggraph2010_silhouette.pdf"
+  ],
+  "상태": "채택",
+  "근거": "트레이싱_조사 1절 표가 Rivers 외(2010)의 직교 뷰 실루엣 일관성을 정면·옆 높이 일치(H)·거울 전 좌우 일치(LR) 로 하네스에 적용했다고 적었다. 자유조사 3절: 부위별 헐 + Boolean 합치기와 같은 구조라 방향이 검증된 방식. 무료도구_조사 A절: Boolean 수정자(EXACT) 이미 씀. 조사_보고서 C-2: 부품 단위로 실루엣을 나눠야 상자형 문제가 줄어든다는 근거.",
+  "다시_볼_조건": null,
+  "자리": "수정_기록 29",
+  "구현": [
+   "build.py",
+   "harness/blender_merge.py",
+   "trace_loop.py"
+  ],
+  "시험": [
+   "tests/selftest_build.py"
+  ],
+  "구현_근거": "build.py 의 STEPS(37행: trace, body, parts, merge, ...)와 harness/blender_merge.py 의 Boolean solver='EXACT'(61행), trace_loop.py 상단 docstring 의 H·LR 독립 검사. tests/selftest_build.py 가 본체·부위 헐 → 합치기 → 3D 검사를 처음부터 끝까지 돌린다. H·LR 검사만 따로 확인하는 시험은 못 찾음."
+ },
+ {
+  "id": "R-110",
+  "조사": "비트맵 → 벡터 경계 추출(Potrace, VTracer): 점을 경계에 붙이지 않고 영역을 고른다",
+  "출처": [
+   "docs/트레이싱_조사.md",
+   "docs/조사_보고서.md"
+  ],
+  "상태": "채택",
+  "근거": "조사_색인 '이미 하네스에 들어간 조사' 표: 영역 선택 방식, 결과 합성 0.997(VTracer 0.968). 트레이싱_조사 1절: 직접 구현이 합성 평균 0.997 대 VTracer 0.968. 조사_보고서 C절은 potrace 바이너리는 불필요하다고 적었다.",
+  "다시_볼_조건": null,
+  "자리": "수정_기록 8",
+  "구현": [
+   "harness/trace.py",
+   "harness/trace_vtracer.py"
+  ],
+  "시험": [
+   "tests/selftest_trace.py"
+  ],
+  "구현_근거": "harness/trace.py 의 region_part(240행, docstring '영역 선택(Potrace·VTracer 처럼 ...)'), harness/trace_vtracer.py 는 비교용 VTracer 변환. tests/selftest_trace.py 의 '영역 선택 IoU ≥ 0.97' (122행)."
+ },
+ {
+  "id": "R-111",
+  "조사": "Blender 내장 Trace Image(grease_pencil.trace_image)와 외부 potrace·Inkscape 로 실루엣을 벡터화한다",
+  "출처": [
+   "docs/조사_보고서.md",
+   "https://docs.blender.org/manual/en/4.2/grease_pencil/modes/object/trace_image.html"
+  ],
+  "상태": "기각",
+  "근거": "조사_보고서 C절 표: Blender 내장 Trace Image 는 '실루엣 벡터화 대안, 우리는 이미 trace_sil.py 가 있어 선택', Potrace/Inkscape 는 '로컬에 없음. 불필요'. 보고서 F절도 potrace·inkscape 를 '불필요(실루엣은 이미 추출됨)' 로 적었다.",
+  "다시_볼_조건": "문서에 적힌 조건 없음(보고서는 Trace Image 를 대안으로만 '선택'이라 적음)",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-112",
+  "조사": "기존 분할 도구(GrabCut, watershed, random walker)를 같은 벤치마크로 비교하고 우리 영역 선택 방식을 유지한다",
+  "출처": [
+   "docs/트레이싱_조사.md"
+  ],
+  "상태": "채택",
+  "근거": "조사_색인 '이미 하네스에 들어간 조사' 표: 기존 분할 도구 → 비교 후 우리 방식 유지(수정_기록 15). 트레이싱_조사 1절: 영역 기반 대화형 분할과 같은 생각이며 설치 없이 numpy 로 재질 영역 + 띠 규칙을 썼다. 수정_기록은 큰 부위만 GrabCut 조합을 쓰는 안을 기각했다(옆 갈기 0.964→0.988 이지만 정면 갈기 0.880→0.682).",
+  "다시_볼_조건": null,
+  "자리": "수정_기록 15",
+  "구현": [
+   "harness/trace_alt.py",
+   "bench/improve_loop.py"
+  ],
+  "구현_근거": "harness/trace_alt.py 의 segment(watershed 48행, random_walker 50행, grabcut 53행), trace.py 253행이 method_by_part 로 호출. bench/improve_loop.py 8·62행이 부위별 알고리즘 후보(ours|grabcut|watershed)를 비교한다. 별도의 tests/ 시험은 못 찾음.",
+  "측정": [
+   "bench/improve_loop.py"
+  ]
+ },
+ {
+  "id": "R-113",
+  "조사": "VLM 에게 겹침 그림을 보여 고치게 하지 않고 도면 기하의 독립 검사 숫자로 루프를 돈다 (Iterative Visual Thinking 79.6% → 48.7%, IR-SIS)",
+  "출처": [
+   "docs/트레이싱_조사.md",
+   "docs/자유조사_2026-10-29.md"
+  ],
+  "상태": "채택",
+  "근거": "트레이싱_조사 1절 표: Iterative Visual Thinking(VLM 에게 겹침 그림을 보여 주고 고치게 하면 79.6% → 48.7%)을 '루프는 그림을 보고 고치지 않는다. 도면 기하의 독립 검사 숫자로 돈다(trace_loop.py)' 로, IR-SIS 를 '손실 = 독립 검사 합. 한 걸음에 행동 하나, 줄 때만 채택' 으로 하네스에 적용했다. 자유조사 7절은 이 연구가 자기 교정 고리 악화에 가장 가까운 근거라고 적었다.",
+  "다시_볼_조건": null,
+  "자리": null,
+  "구현": [
+   "trace_loop.py"
+  ],
+  "시험": [],
+  "구현_근거": "trace_loop.py 상단 docstring(Iterative Visual Thinking 인용, H·LR 독립 검사, 손실식)과 checks(43행)·loss(71행)·actions(87행). 이 루프를 직접 시험하는 tests/ 파일은 못 찾음."
+ },
+ {
+  "id": "R-114",
+  "조사": "손그림 모델 시트의 뷰 불일치 진단: 모델이 둘 다 맞출 수 없는 '그림 모순' 을 모델링 오차와 가르고 LLM 결정을 근거와 함께 기록한다 (ModelSheetTo3D, Eurographics 2026)",
+  "출처": [
+   "docs/자유조사_2026-10-29.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://diglib.eg.org/handle/10.1111/cgf70323",
+   "https://github.com/hjyoon02/ModelSheetTo3D"
+  ],
+  "상태": "채택",
+  "근거": "조사_색인 '이미 하네스에 들어간 조사' 표: ModelSheetTo3D·뷰 불일치 → 그림 모순 진단 + 결정 기록, 결과 카드 단계 1. 설계_LLM_3D모델러 2.2 표: 그림 모순 진단 + LLM 결정(정면 따름).",
+  "다시_볼_조건": null,
+  "자리": "수정_기록 27",
+  "구현": [
+   "harness/model_check.py",
+   "harness/api.py"
+  ],
+  "시험": [
+   "tests/selftest_model.py",
+   "tests/selftest_api.py"
+  ],
+  "구현_근거": "harness/model_check.py 203~218행이 트레이스끼리 높이가 안 맞는 행으로 '그림 모순' 을 진단(docstring 에 ModelSheetTo3D 인용), harness/api.py 의 decide 도구(128행). tests/selftest_model.py 의 '그림 모순' 시험(72행), tests/selftest_api.py 의 decide 시험(46행)."
+ },
+ {
+  "id": "R-115",
+  "조사": "뷰마다 작은 2D 변형(높이 배율·이동)을 허용하고 그 잔차를 G 관문 보고에 남긴다 (ModelSheetTo3D, NOVA-3D)",
+  "출처": [
+   "docs/자유조사_2026-10-29.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/pdf/2405.12505"
+  ],
+  "상태": "대기",
+  "근거": "자유조사 6절 우선순위 5번, 설계_LLM_3D모델러 2.2 표 '뷰마다 작은 변형 허용은 아직', 5.1 표 '그림 모순을 뷰마다 작은 변형으로 흡수하는 것이 다음 단계'. 반증 조건(자유조사 1절): 일부러 뷰를 어긋나게 만든 합성 벤치마크에서 결합 IoU 가 오르지 않으면 기각. 조사_색인 표에는 이 항목의 결정이 없다.",
+  "다시_볼_조건": null,
+  "자리": "자유조사 6절 우선순위 5 (루프·로드맵 번호는 문서에 없음)",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-116",
+  "조사": "세부 무늬(decal) 층을 형상에서 분리해 텍스처로 보낸다 (ModelSheetTo3D 의 선·평면색·무늬 세 층 분해)",
+  "출처": [
+   "docs/자유조사_2026-10-29.md",
+   "docs/설계_LLM_3D모델러.md"
+  ],
+  "상태": "대기",
+  "근거": "자유조사 1절·6절 우선순위 6번: 눈 무늬·반점은 형상이 아니라 트레이싱 부위에서 빼고 텍스처로 보낸다, 지금 트레이서에는 이 구분이 없다. 설계_LLM_3D모델러 2.1 표: 무늬(데칼) 층은 없음. 조사_색인 표에는 결정이 없다.",
+  "다시_볼_조건": null,
+  "자리": "자유조사 6절 우선순위 6 (루프·로드맵 번호는 문서에 없음)",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-117",
+  "조사": "GPU·학습 모델 기반 도면→3D 구현과 일러스트 층 분해 모델 (ModelSheetTo3D 의 TRELLIS·nvdiffrast·APAP, See-through, Workflow-Aware Structured Layer Decomposition)",
+  "출처": [
+   "docs/트레이싱_조사.md",
+   "docs/자유조사_2026-10-29.md",
+   "https://arxiv.org/abs/2603.14925",
+   "https://arxiv.org/html/2602.03749v1"
+  ],
+  "상태": "기각",
+  "근거": "트레이싱_조사 1절 표: ModelSheetTo3D·See-through 는 GPU(8~24GB) 필요라 도입하지 않음(로컬 GTX 750 Ti 2GB). 자유조사 1·2절: 학습 3D 생성 모델 TRELLIS 와 RTX 4090 시험이라 제약(GPU·학습 모델 금지)으로 그대로 쓸 수 없고, 층 분해 모델도 학습 모델이라 못 쓴다. 단 재질 = 평면색, 톤 = 그림자 층으로 분리해 다루는 설계는 이미 우리 방향과 같다고 적었다.",
+  "다시_볼_조건": "GPU·학습 모델을 쓸 수 있는 환경이 될 때(문서에 별도 조건은 없고 GPU 8~24GB 요건이 사유)",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-118",
+  "조사": "Set-of-Mark 시각 프롬프트: 영역에 번호를 찍고 LLM 은 번호만 답하게 한다(색 군집 → 재질 묶음 검토, 빠진 재질 찾기)",
+  "출처": [
+   "docs/자유조사_2026-10-29.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/abs/2310.11441v2",
+   "https://github.com/microsoft/SoM"
+  ],
+  "상태": "채택",
+  "근거": "조사_색인 '이미 하네스에 들어간 조사' 표: Set-of-Mark → 빠진 재질 찾기(두 모델 가족 일치), 결과 귀 0.787→0.930. 설계_LLM_3D모델러 2.1 표: 빠진 재질 찾기·교정 후보에 사용.",
+  "다시_볼_조건": null,
+  "자리": "수정_기록 34",
+  "구현": [
+   "harness/groups_review.py",
+   "harness/llm_aids.py",
+   "trace_review.py"
+  ],
+  "시험": [
+   "tests/selftest_trace.py"
+  ],
+  "구현_근거": "harness/groups_review.py 상단 docstring '색 군집 → 재질 묶음 검토(Set-of-Mark 방식)', harness/llm_aids.py 의 조각 색 테두리(Set-of-Mark, 6·20행), trace_review.py 의 groups 명령. tests/selftest_trace.py 의 '빠진 재질 찾기' 시험(213행), bench/groups_bench.py·groups_v2.py 가 채택 기준을 돌리기 전에 정해 둔 벤치마크.",
+  "측정": [
+   "bench/groups_bench.py",
+   "bench/groups_v2.py"
+  ]
+ },
+ {
+  "id": "R-119",
+  "조사": "VLM 판정 편향 대응: 순서를 바꿔 두 번 묻고 뒤집히면 UNKNOWN, 두 모델 가족 교차 (arXiv 2606.20364, 2606.18451)",
+  "출처": [
+   "docs/자유조사_2026-10-29.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/pdf/2606.20364",
+   "https://arxiv.org/abs/2606.18451"
+  ],
+  "상태": "채택",
+  "근거": "조사_색인 '이미 하네스에 들어간 조사' 표: VLM 판정 편향(순서·여러 장) → 순서 바꿔 두 번, 두 가족 교차, 모든 판단 도구. 설계_LLM_3D모델러 2.6 표: 쓰고 있음.",
+  "다시_볼_조건": null,
+  "자리": "수정_기록 34",
+  "구현": [
+   "harness/llm_aids.py",
+   "harness/groups_review.py",
+   "rust/src/mcp.rs"
+  ],
+  "시험": [
+   "tests/selftest_aids.py",
+   "tests/selftest_mcp.py"
+  ],
+  "구현_근거": "harness/llm_aids.py 의 judge(순서 뒤집힘·재현율·가족 카파, 8·124행), harness/groups_review.py 4~5행(보기 순서만 바꿔 두 번 묻기, arXiv 2606.20364 인용), rust/src/mcp.rs 의 judge(313행). tests/selftest_aids.py 의 judge (나) 순서에 따라 바뀐 문항만 UNKNOWN(54행), tests/selftest_mcp.py (나-9)."
+ },
+ {
+  "id": "R-120",
+  "조사": "사람·LLM 확인용 3D 그림에 툰 렌더 대신 법선 그림과 와이어프레임도 같이 낸다 (셰이딩 렌더는 깨진 메시를 멀쩡해 보이게 함: 3D-DefectBench, 3D Arena)",
+  "출처": [
+   "docs/자유조사_2026-10-29.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/pdf/2607.10826",
+   "https://arxiv.org/pdf/2506.18787"
+  ],
+  "상태": "채택",
+  "근거": "자유조사 4절 적용: 사람·LLM 확인용 3D 그림은 툰 렌더 대신 법선 그림도 같이 낸다. 설계_LLM_3D모델러 5.1 표: 지금 views 단계에 법선·와이어프레임을 더하면 된다. 루프_작업목록 4e 완료 항목이 observe_look(3/4·위·법선 그림)을 적었고 코드에 있다. 조사_색인에는 고정 시점 비평 전체(R4)만 올라 있어 R-121 로 따로 둔다.",
+  "다시_볼_조건": null,
+  "자리": "루프 4e",
+  "구현": [
+   "harness/blender_view_bg.py",
+   "rust/src/mcp.rs"
+  ],
+  "시험": [
+   "tests/selftest_mcp.py"
+  ],
+  "구현_근거": "harness/blender_view_bg.py 4행 '그림 종류(K1): solid, normal 법선 색, wire 와이어프레임 겹침', rust/src/mcp.rs 의 observe_look(65·178행이 solid,normal,wire 로 호출). tests/selftest_mcp.py (나-4b) 헤드리스 3/4·위·아래 그림."
+ },
+ {
+  "id": "R-121",
+  "조사": "매번 같은 시점 묶음(정면·옆·뒤·3/4·위 + 법선 + 와이어프레임)을 찍어 앞뒤를 비교하고 한 번에 문제 하나만 고치는 고정 시점 비평 (3D-DefectBench, IterVision, aDSL 7방향, 3D Arena, LL3M 다각도 비평, RFingAdam render_multi_angle)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "docs/조사_보고서.md",
+   "https://arxiv.org/pdf/2607.10826",
+   "https://arxiv.org/abs/2608.17975",
+   "https://arxiv.org/pdf/2506.18787"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: 3D-DefectBench·고정 시점 비평 → R4 모양 검사기. 설계_LLM_3D모델러 5.2: R4 검사기는 고정 시점 묶음 + 법선 그림 + 와이어프레임, 앞뒤 비교, 한 번에 문제 하나. 법선·와이어 그림을 찍는 부분만 R-120 으로 이미 들어갔고, 앞뒤 비교와 한 번에 하나 규칙은 문서에 구현 기록이 없다. 조사_보고서 C-4 는 RFingAdam 의 구조만 참고(판정자가 로컬 llava VRAM 8GB 권장, 이 PC 2GB)라고 적었다.",
+  "다시_볼_조건": null,
+  "자리": "R4",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-122",
+  "조사": "합친 3D 메시의 연결 성분 수·떠 있는 조각·열린 메시를 관문에 넣는다 (3DCodeBench)",
+  "출처": [
+   "docs/자유조사_2026-10-29.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/abs/2606.01057"
+  ],
+  "상태": "채택",
+  "근거": "조사_색인 '이미 하네스에 들어간 조사' 표: 3DCodeBench(떠 있는 조각) → 합친 메시 몸 수 검사, 부위 박기, 결과 들소 5조각→1. 자유조사 4절: 반증 조건 불필요한 순수 검사 추가라 비용이 작다.",
+  "다시_볼_조건": null,
+  "자리": "수정_기록 29",
+  "구현": [
+   "harness/model_check.py",
+   "rust/src/score.rs"
+  ],
+  "시험": [
+   "tests/selftest_model.py"
+  ],
+  "구현_근거": "harness/model_check.py 의 merged_check(167행: 몸 수·닫힘·오일러)와 떠 있는 조각 연결 성분(226~247행, docstring 에 3DCodeBench 인용), rust/src/score.rs 의 body_count(236행). tests/selftest_model.py 의 떠 있는 조각(82·85행)과 합친 메시(101행) 시험."
+ },
+ {
+  "id": "R-123",
+  "조사": "구조화된 기록을 검색하는 에이전트 기억과 Blender 문서 검색 (PRO-LONG, 기억 조사 arXiv 2603.07670, BlenderRAG: LL3M 에서 실행 오류 26% 감소)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "docs/자유조사_2026-10-29.md",
+   "https://www.alphaxiv.org/abs/2607.20064",
+   "https://www.alphaxiv.org/abs/2603.07670.md",
+   "https://arxiv.org/pdf/2605.00632"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: PRO-LONG → R8 과제 묶음·장부, 별도 AI 없이 표: BlenderRAG → 교훈·문서 검색(기억 틀). 설계_LLM_3D모델러 2.7 표: 교훈 jsonl + 카드, 실험 장부 검색으로 키울 것. 교훈 검색이 꼬리표 일치뿐이라는 한계가 문서에 적혀 있다.",
+  "다시_볼_조건": null,
+  "자리": "R8",
+  "구현": [
+   "rust/src/mcp.rs"
+  ],
+  "시험": [
+   "tests/selftest_mcp.py"
+  ],
+  "구현_근거": "일부만 있음: rust/src/mcp.rs 의 memory_lessons(73행, 단어·진단·부위 꼬리표 교훈 검색). 설계가 말한 실험 장부 검색·구조화 기록 검색은 못 찾음. 시험은 tests/selftest_mcp.py (나-9) 교훈 검색."
+ },
+ {
+  "id": "R-124",
+  "조사": "도면 → 모델 과제 묶음과 결과 장부 (BlenderWorld 223 과제, P3D-Bench, CodeGen-3D)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/html/2610.23986v1",
+   "https://arxiv.org/html/2606.11152v1"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: BlenderWorld·P3D-Bench·PRO-LONG → R8 과제 묶음·장부. 설계_LLM_3D모델러 R8 채택 기준: 같은 과제를 다시 돌렸을 때 결과가 같음(지문), 장부에서 실패 유형별 개수 집계. 참고: 루프_작업목록 항목 2 가 v2 과제 묶음 24과제(지문 재현)를 완료로 적었으므로 상태 갱신 여부는 사람이 판단해야 한다.",
+  "다시_볼_조건": null,
+  "자리": "R8",
+  "구현": [
+   "bench/m0.py",
+   "bench/v2_eval.py"
+  ],
+  "시험": [],
+  "구현_근거": "일부만 있음: bench/m0.py 상단 docstring 'M0 과제 묶음: 과제 만들기, 기준선 돌리기, 채점, 장부', bench/v2_eval.py 가 bench/v2/ledger.jsonl 에 기록. 이 구현이 위 논문을 근거로 만든 것인지는 문서에 없고, 실패 유형별 집계와 교훈 검색 개선은 못 찾음."
+ },
+ {
+  "id": "R-125",
+  "조사": "관계 연산으로 배치하고 부위마다 받아들이기 검사를 두는 편집 가능한 형상 프로그램 (aDSL, Procedura, ShapeCraft, Proc3D, ShapeLib, MeshCoder)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "docs/조사_보고서.md",
+   "https://arxiv.org/abs/2608.17975",
+   "https://github.com/sig-pku/aDSL",
+   "https://arxiv.org/abs/2608.26238",
+   "https://github.com/SpatiaOS/Procedura",
+   "https://arxiv.org/pdf/2510.17603",
+   "https://arxiv.org/html/2601.12234v1",
+   "https://arxiv.org/abs/2502.08884v1",
+   "https://arxiv.org/abs/2508.14879"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: aDSL·Procedura(관계 연산·부위 받아들이기 검사) → R2 부위 그래프. 설계_LLM_3D모델러 5.2: R2 를 관계 연산(붙이기·좌우 짝·위쪽/옆쪽)과 부위마다 받아들이기 검사(합쳐짐·떠 있지 않음·실루엣)로. 조사_보고서 C절은 Procedura 를 기계 부품 지향이라 크리처에 부적합 추정으로 적었으나 구조 아이디어는 R2 로 간다.",
+  "다시_볼_조건": null,
+  "자리": "R2",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-126",
+  "조사": "학습 없이 그래프 제약 추론으로 뼈대를 먼저 짜고 부위를 조립한다 (Muses)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/pdf/2601.03256"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: Muses(뼈대 먼저 조립) → R2 부위 그래프. 설계_LLM_3D모델러 5.1 표: 케라투라처럼 여러 동물 부위를 섞는 크리처에 맞는 방향, 뼈대 먼저 → 부위 조립은 R2 와 같은 구조.",
+  "다시_볼_조건": null,
+  "자리": "R2",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-127",
+  "조사": "부위 단위 3D 생성 (OmniPart, PartCrafter, PartPacker, HoloPart): 부위 그래프의 형식만 참고",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/abs/2507.06165",
+   "https://arxiv.org/html/2610.31671"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표가 OmniPart 등을 R2 부위 그래프 자리로 적었다. 설계_LLM_3D모델러 5.1 표: 모두 GPU 학습 모델이라 지금은 쓰지 않고 부위마다 따로, 가려진 부분까지라는 형식만 참고. 비교 논문은 PartPacker 0.1489 가 OmniPart 0.1547 보다 나음, OmniPart 는 입력에서 벗어나 메시를 비트는 경향이라고 적었다.",
+  "다시_볼_조건": null,
+  "자리": "R2",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-128",
+  "조사": "Planner-Actor-Critic: MCP 도구로 Blender 를 몰고 비평은 3번쯤에서 더 나아지지 않는다, 숙련자는 부위로 나누고 묶어 편집 가능하게 둔다",
+  "출처": [
+   "docs/조사_색인.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/pdf/2601.05016"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 별도 AI 없이 표: 루프 횟수 한도의 근거(같은 진단 2번이면 조사 단계로 넘기는 지금 규칙과 맞음). 설계_LLM_3D모델러 6.1: 숙련자는 부위로 나누고 묶어 편집 가능하게 둔다. 두 표 모두 이 연구를 반영해 만들었다고는 적지 않고 '맞음' 이라고만 적어 대기로 둔다. 같은 효과의 규칙은 코드에 있다.",
+  "다시_볼_조건": null,
+  "자리": "루프 횟수 한도 규칙(조사_색인 별도 AI 없이 표), 부위로 나누기는 R2",
+  "구현": [
+   "rust/src/mcp.rs",
+   "model_loop.py"
+  ],
+  "시험": [
+   "tests/selftest_model.py",
+   "tests/selftest_mcp.py"
+  ],
+  "구현_근거": "rust/src/mcp.rs 210행 act_fit 이 막힘 상태면 거부(같은 관문 FAIL 3번 → 행동 막힘), model_loop.py 82·147행 check_history 와 '막힘: 조사 단계' 절. 시험은 tests/selftest_model.py 의 조사 단계(134행)와 tests/selftest_mcp.py (나-6). 이 규칙이 Planner-Actor-Critic 에서 왔다는 기록은 못 찾음."
+ },
+ {
+  "id": "R-129",
+  "조사": "도구 설명문(docstring)만으로 도구를 늘리는 LLM + 정해진 도구 + 실행 되먹임 방식 (CAD-Assistant, ICCV 2025)",
+  "출처": [
+   "docs/조사_색인.md",
+   "https://arxiv.org/abs/2412.13810v1"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 별도 AI 없이 표: 우리와 가장 같은 철학이고, 도구 설명만으로 도구를 늘리는 방식은 우리 도구 층에 바로 맞는다. 조사_색인 '이미 들어간' 표에도 '아직 안 쓴' 표에도 결정이 없어 대기. 도구 층(harness/api.py)은 이미 있다.",
+  "다시_볼_조건": null,
+  "자리": "도구 층 harness/api.py (조사_색인에 항목 번호 없음)",
+  "구현": [
+   "harness/api.py"
+  ],
+  "시험": [
+   "tests/selftest_api.py"
+  ],
+  "구현_근거": "harness/api.py 의 @tool(이름, 설명, 인자) 등록 방식(24·79·92행 등)이 설명문 기반 도구 등록과 같은 모양이다. 다만 CAD-Assistant 를 반영해 만들었다는 기록은 못 찾음."
+ },
+ {
+  "id": "R-130",
+  "조사": "LL3M: 여러 에이전트가 Blender 코드를 쓰고 비평 에이전트가 렌더를 보고 고친다 (코드 repo)",
+  "출처": [
+   "docs/조사_보고서.md",
+   "docs/조사_색인.md",
+   "docs/자유조사_2026-10-29.md",
+   "https://github.com/threedle/ll3m",
+   "https://www.alphaxiv.org/abs/2508.08228"
+  ],
+  "상태": "기각",
+  "근거": "조사_보고서 C절 표: 비상업 데모 라이선스, 서버 중단 → 제외. 구조(부위별 모듈 코드, 비평 에이전트)는 조사_색인 별도 AI 없이 표가 부위 그래프(R2)·비평(R4)과 같은 구조라고 적었고, 그 아이디어는 R-125·R-121 항목으로 따라간다. 자유조사 4절은 우리는 형상을 이미지에서 재서 만들므로 직접 관련은 작다고 적었다.",
+  "다시_볼_조건": "문서에 적힌 조건 없음(라이선스가 비상업이라는 사유가 바뀔 때)",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-131",
+  "조사": "다른 Blender 조종 껍데기 계열 오픈소스 (Blender Agent Studio, RFingAdam/mcp-blender, shefq/blendrelay-mcp, blenderlm, BlenderAlchemy, SceneCraft)",
+  "출처": [
+   "docs/조사_보고서.md",
+   "https://github.com/ifBars/blender-agent-studio",
+   "https://github.com/ifBars/blender-agent-studio/blob/main/docs/reference-modeling.md"
+  ],
+  "상태": "보류",
+  "근거": "조사_보고서 C절: Agent Studio 는 우리 trace_iou.py 와 같은 기능이라 '선택: 비교 시험 가치만', 한 번 호출에 참조 이미지 1장만 받고 자동 최적화 없음. C-4: RFingAdam 은 구조만 참고(판정자가 로컬 llava VRAM 8GB 권장, 이 PC 2GB, 목표가 글 설명), blendrelay-mcp 는 사람과 함께 쓰는 앞단으로 쓸 만함(README 가 참조 이미지는 안내일 뿐이라고 밝힘), blenderlm·BlenderAlchemy·SceneCraft 는 지금 실패한 방식과 같은 계열.",
+  "다시_볼_조건": "비교 시험이 필요해질 때(보고서: Agent Studio 는 비교 시험 가치만 있음)",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-132",
+  "조사": "Blender MCP (ahujasid/mcp-for-blender, MIT): 켜 둔 Blender 에 명령을 보내고 아무 각도 화면을 캡처한다",
+  "출처": [
+   "docs/무료도구_조사.md",
+   "docs/조사_보고서.md",
+   "https://github.com/ahujasid/mcp-for-blender",
+   "https://www.augmentcode.com/mcp/blender-mcp"
+  ],
+  "상태": "채택",
+  "근거": "조사_색인 '이미 하네스에 들어간 조사' 표: Blender MCP → 등록·시험, 하네스는 헤드리스 기본(수정_기록 32). 조사_보고서 C절은 처음에 blender -b -P 로 충분해 불필요하다고 적었으나 무료도구_조사 B절이 3/4 검사용으로 설치 필요(승인) 항목에 올렸고 이후 등록됐다.",
+  "다시_볼_조건": null,
+  "자리": "수정_기록 32",
+  "구현": [
+   "harness/blender_view.py",
+   "harness/blender_daemon.py",
+   ".mcp.json"
+  ],
+  "시험": [],
+  "구현_근거": "harness/blender_view.py 2·5행(켜 둔 Blender MCP 애드온 localhost:9876 로 여러 각도를 찍음, --mcp 판), harness/blender_daemon.py 4~5행(MCP 애드온과 같은 명령 형식), 저장소 뿌리 .mcp.json 의 blender 서버(uvx mcp-for-blender). 이 연결을 시험하는 tests/ 파일은 못 찾음(tests/selftest_mcp.py 는 우리 Rust 서버 시험)."
+ },
+ {
+  "id": "R-133",
+  "조사": "Anthropic 공식 Blender 연결기(2026년 4월): 지금 쓰는 MCP for Blender 보다 낫다면 바꿀 후보",
+  "출처": [
+   "docs/조사_색인.md",
+   "https://digitalproduction.com/2026/04/30/anthropic-funds-blender-ships-claude-connector/",
+   "https://forklog.com/en/news/anthropic-integrates-claude-with-blender-adobe-photoshop-and-premiere"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 별도 AI 없이 표: 공식판이 낫다면 바꿀 후보이고 원격 전송·기능 비교가 필요하다고 적었다. 이후 결정 기록은 없다.",
+  "다시_볼_조건": null,
+  "자리": "Blender MCP 교체 후보 비교(조사_색인에 항목 번호 없음)",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-134",
+  "조사": "Claude Code 용 Blender 스킬 (예: kevinbadi/blender-skills): 그림 → 3D 는 Meshy 같은 유료 외부 생성 AI 를 부른다",
+  "출처": [
+   "docs/조사_색인.md",
+   "https://github.com/kevinbadi/blender-skills"
+  ],
+  "상태": "기각",
+  "근거": "조사_색인 별도 AI 없이 표: 별도 AI 없이가 아니고 도면 충실도 검사도 없음.",
+  "다시_볼_조건": "문서에 적힌 조건 없음",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-135",
+  "조사": "OpenTopos: 코딩 에이전트가 bpy 프로젝트로 GLB·URDF 를 만든다",
+  "출처": [
+   "docs/조사_보고서.md",
+   "https://github.com/gaoypeng/opentopos"
+  ],
+  "상태": "기각",
+  "근거": "조사_보고서 C절 표: 라이선스 없음, README 스스로 블록형까지가 한계라고 적어 제외.",
+  "다시_볼_조건": "문서에 적힌 조건 없음(라이선스가 생길 때로 읽을 수 있음)",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-136",
+  "조사": "Kiln: 에이전트가 JS 로 지오메트리를 만들고 CPU 렌더로 검토해 GLB 로 낸다",
+  "출처": [
+   "docs/조사_보고서.md",
+   "https://github.com/instruktlabs/kiln"
+  ],
+  "상태": "보류",
+  "근거": "조사_보고서 C절 표: Blender 밖이고 도면 입력 미확인이라 보류.",
+  "다시_볼_조건": "도면 입력 지원이 확인될 때(보고서: 도면 입력 미확인)",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-137",
+  "조사": "한 뷰에만 증거가 있는 부위를 닫힌 윤곽 부풀리기로 만든다 (Monster Mash, Teddy/OpenTeddy; 거리 변환으로 두께를 sqrt 꼴로)",
+  "출처": [
+   "docs/자유조사_2026-10-29.md",
+   "docs/조사_보고서.md",
+   "https://research.google/blog/monster-mash-a-sketch-based-tool-for-casual-3d-modeling-and-animation/",
+   "https://github.com/google/monster-mash",
+   "https://www.sourceforge.net/projects/openteddy"
+  ],
+  "상태": "대기",
+  "근거": "자유조사 6절 우선순위 4번: 한 뷰 증거 부위 부풀리기(가정 표시), numpy·scipy 로 바로 된다. 조사_보고서 C절은 Monster Mash 를 측면 도면을 버리므로 참고만으로 적었다. 조사_색인 표에는 결정이 없다.",
+  "다시_볼_조건": null,
+  "자리": "자유조사 6절 우선순위 4 (루프·로드맵 번호는 문서에 없음)",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-138",
+  "조사": "미분 렌더링으로 정점 최적화 (PyTorch3D, Mitsuba 3, SoftRas, nvdiffrast, Sketch2Mesh, Deep3DSketch+)",
+  "출처": [
+   "docs/조사_보고서.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://github.com/mitsuba-renderer/mitsuba3",
+   "https://mitsuba.readthedocs.io/en/v3.5.2/src/inverse_rendering/shape_optimization.html",
+   "https://arxiv.org/pdf/1901.05567",
+   "https://arxiv.org/pdf/2104.00482"
+  ],
+  "상태": "기각",
+  "근거": "조사_보고서 D절 표: Differentiable rendering 미채택, 해석적 잔차로 대체(변수 약 150개의 고리 케이지는 해석적 잔차로 충분, 의존성이 크고 GTX 750 Ti 2GB 로는 무리, Mitsuba 3 는 CPU 가능하나 정점 기울기가 가시성 경계에만 생겨 메시가 엉킴). 설계_LLM_3D모델러 2.3 표: 미분 렌더러는 GPU 쪽이라 CPU 판 실루엣 경사(거리장)로 대신할 수 있음.",
+  "다시_볼_조건": "해석적 잔차로 풀리지 않는 형상이 나오고 CPU 실루엣 피팅 속도가 확인될 때(보고서: 속도 UNKNOWN)",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-139",
+  "조사": "Image-to-CAD (CAD-Coder arXiv 2505.14646, BenchCAD 계열)",
+  "출처": [
+   "docs/조사_보고서.md",
+   "https://arxiv.org/abs/2505.14646"
+  ],
+  "상태": "기각",
+  "근거": "조사_보고서 C-2·D절: 기계 부품(돌출·필렛·구멍) 대상이라 근육·털 덩어리 크리처에 표현 단위가 맞지 않고, CAD-Coder 는 13B 모델이라 GPU 가 필요하다. 가설 E(CAD 부적합) 지지.",
+  "다시_볼_조건": "문서에 적힌 조건 없음",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-140",
+  "조사": "학습 기반 단일 이미지 → 3D (TripoSR, Hunyuan3D, Rodin)",
+  "출처": [
+   "docs/조사_보고서.md"
+  ],
+  "상태": "기각",
+  "근거": "조사_보고서 C·F절: GPU 필수(로컬 GTX 750 Ti 2GB 불가), 도면 충실·편집·리깅 모두 약함, Hunyuan3D 커뮤니티 라이선스는 한국 적용 제외 명시. I절 5번 '새 도구·MCP·GPU·학습 모델은 추가하지 않는다'.",
+  "다시_볼_조건": "GPU 요건이 풀릴 때(보고서: 로컬 2GB 로 불가)",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-141",
+  "조사": "도면 → 메시 Blender 애드온 (FSX3D Blueprint Tool, Blueprint Importer, Multi-View Reference Manager, ReferenceMesh)",
+  "출처": [
+   "docs/조사_보고서.md",
+   "https://superhivemarket.com/products/fsx3d-blueprint-tool",
+   "https://superhivemarket.com/products/blueprint-importer",
+   "https://superhivemarket.com/products/multi-view-reference-manager-blender-addon",
+   "https://superhivemarket.com/products/refmesh"
+  ],
+  "상태": "기각",
+  "근거": "조사_보고서 D절 표: 도면→3D Blender 애드온 미채택. 자동 생성은 탈것용 FSX3D(유료)뿐이고 나머지는 배치·수동이다.",
+  "다시_볼_조건": "문서에 적힌 조건 없음",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-142",
+  "조사": "Geometry Nodes 로 고리 케이지를 절차적으로 만들어 Blender UI 슬라이더로 고친다",
+  "출처": [
+   "docs/조사_보고서.md"
+  ],
+  "상태": "보류",
+  "근거": "조사_보고서 D절 표: 선택. GN 트리를 Python 으로 만들고 검증하는 비용이 bmesh 직접 생성보다 크다(추정), 1차 실험은 bmesh.",
+  "다시_볼_조건": "사람이 Blender UI 에서 고칠 편집 UI 가 필요해질 때(보고서: 편집 UI 가 필요해지면 GN 으로)",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-143",
+  "조사": "Blender 내장 변형 수정자(Hook, Lattice, Laplacian Deform, Shrinkwrap)와 비례 편집으로 AI 용 얇은 명령 층을 만든다: 도면 랜드마크·윤곽 구간에 정점·고리를 이름 붙은 핸들로 묶는다",
+  "출처": [
+   "docs/조사_보고서.md",
+   "docs/설계_LLM_3D모델러.md"
+  ],
+  "상태": "채택",
+  "근거": "조사_보고서 C-4: 만들어야 하는 것은 1·2번을 잇는 얇은 층이고 계산은 Blender 내장 기능과 기존 측정기로 하며 새 설치는 없다. 설계_LLM_3D모델러 2.3 표: 실루엣 → 메시 최적화에 'fitloop(핸들 이동) 있음'.",
+  "다시_볼_조건": null,
+  "자리": null,
+  "구현": [
+   "fitloop.py",
+   "bridge.py"
+  ],
+  "시험": [
+   "tests/selftest.py"
+  ],
+  "구현_근거": "fitloop.py 상단 docstring '도면 마스크만 보고 이름 있는 핸들(Hook·Lattice)을 움직여 메시 오차를 줄이는 반복 루프'(2·7행), bridge.py 는 CLAUDE.md 명령 절에서 fitloop 으로 연결하는 명령. tests/selftest.py 4행이 Hook·Lattice 핸들로 망가뜨린 도형을 fitloop 이 되돌리는지 본다. Laplacian Deform·Shrinkwrap 사용은 못 찾음."
+ },
+ {
+  "id": "R-144",
+  "조사": "기존 도구 먼저: scipy, scikit-image, OpenCV, Pillow 를 .vendor 로 설치해 손 구현을 바꾼다",
+  "출처": [
+   "docs/무료도구_조사.md",
+   "docs/조사_보고서.md"
+  ],
+  "상태": "채택",
+  "근거": "무료도구_조사 머리말: 이미 쓰는 것으로 Blender 5.2, vtracer, scipy, scikit-image, opencv-python-headless, Pillow(.vendor). 조사_보고서 F절은 scipy·scikit-image 를 선택 설치로 올렸고 이후 사용자 승인으로 설치됐다(vendor.py 가 승인을 기록).",
+  "다시_볼_조건": null,
+  "자리": "수정_기록 15",
+  "구현": [
+   "harness/vendor.py",
+   "harness/hull.py",
+   "harness/color_regions.py",
+   "harness/trace_alt.py"
+  ],
+  "시험": [],
+  "구현_근거": "harness/vendor.py 2행 '.vendor/ (사용자 승인 설치: vtracer, scipy, scikit-image, opencv-python-headless, trimesh)', harness/hull.py 5·45·106행(scipy.ndimage, skimage marching_cubes·skeletonize), harness/color_regions.py 19·60행(skimage rgb2lab, scipy cKDTree), harness/trace_alt.py 46·67행(skimage watershed·random_walker, cv2.grabCut). 이 설치 자체를 직접 시험하는 tests/ 파일은 못 찾음."
+ },
+ {
+  "id": "R-145",
+  "조사": "trimesh 로 3D 검사의 닫힘(watertight)·오일러 수·연결 성분을 잰다",
+  "출처": [
+   "docs/무료도구_조사.md",
+   "docs/조사_보고서.md",
+   "https://pypi.org/project/trimesh/"
+  ],
+  "상태": "채택",
+  "근거": "무료도구_조사 B절·추천 4번: 3D 검사의 닫힘·성분 검사를 기존 도구로 바꾼다(승인 필요 항목으로 올림). 이후 수정_기록 29 가 trimesh 로 몸 수·닫힘을 `model_loop.py check --merged` 에 쓴다고 적었고 vendor.py 가 승인 설치를 기록한다.",
+  "다시_볼_조건": null,
+  "자리": "수정_기록 29",
+  "구현": [
+   "harness/model_check.py",
+   "harness/sweep.py",
+   "harness/vendor.py"
+  ],
+  "시험": [
+   "tests/selftest_model.py"
+  ],
+  "구현_근거": "harness/model_check.py 의 merged_check(167행, import trimesh, is_watertight·euler_number·split), harness/sweep.py 240~242행 trimesh.smoothing.filter_taubin. tests/selftest_model.py 101행 '합친 메시: 겹쳐 있기만 한 조각은 합쳐지지 않음'."
+ },
+ {
+  "id": "R-146",
+  "조사": "manifold3d 로 결과가 항상 닫힌 메시인 튼튼한 불리언 합치기",
+  "출처": [
+   "docs/무료도구_조사.md",
+   "https://pypi.org/project/manifold3d/"
+  ],
+  "상태": "대기",
+  "근거": "무료도구_조사 B절 표: 라이선스는 이 조사에서 확인 못 함, 입력이 닫혀 있지 않으면 오류. A절 Boolean 항목은 Manifold 해법이 Blender 5.2 에 있는지 UNKNOWN. 조사_색인에 결정이 없다.",
+  "다시_볼_조건": null,
+  "자리": "단계 4 합치기 (무료도구_조사 A·B절의 쓸 곳, 루프 번호 없음)",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-147",
+  "조사": "커브 + 베벨 단면(또는 Geometry Nodes Curve to Mesh)으로 중심선을 따라 타원 단면을 쓸어 뿔·관을 만든다",
+  "출처": [
+   "docs/무료도구_조사.md",
+   "docs/루프_작업목록.md"
+  ],
+  "상태": "대기",
+  "근거": "무료도구_조사 A절·추천 1번: 설치 없이 상자 단면(헐) 해결, 하네스 연결은 미구현. 반증 조건: 합성 둥근 뿔에서 재투영 IoU 가 헐보다 0.01 넘게 떨어지거나 단면 채움비가 0.85 를 넘으면 기각. 루프_작업목록 항목 8 이 '관 = 커브 + 베벨' 을 편집 가능한 Blender 출력으로 대기에 올렸다.",
+  "다시_볼_조건": null,
+  "자리": "루프 8",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-148",
+  "조사": "Skin 수정자: 뼈대 점 + 점마다 반지름으로 크리처 본체·다리·꼬리를 만들고 Create Armature 로 뼈도 만든다",
+  "출처": [
+   "docs/무료도구_조사.md"
+  ],
+  "상태": "대기",
+  "근거": "무료도구_조사 A절: 고리 케이지가 어려운 팔다리·꼬리용, 미시험. 조사_색인에 결정이 없다.",
+  "다시_볼_조건": null,
+  "자리": "단계 3 본체·다리·꼬리 (무료도구_조사 A절의 쓸 곳, 루프 번호 없음)",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-149",
+  "조사": "Rigify 사족 메타릭(Basic Quadruped, Horse, Wolf 등)으로 리깅을 학습 모델 없이 시작한다",
+  "출처": [
+   "docs/무료도구_조사.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://docs.blender.org/manual/de/5.2/addons/rigify/basics.html"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인에는 없고 설계_LLM_3D모델러 R6 가 'Blender QuadriFlow, Rigify 사족 메타릭 맞추기' 를 자리로 적었다(채택 기준: 사각면 비율 ≥ 0.95, 실루엣 하락 ≤ 0.01, 리깅 준비 검사 PASS 유지). 무료도구_조사 추천 2번은 검사기부터(뼈가 메시 안에 있는지, 자동 가중치가 모든 정점에 붙는지).",
+  "다시_볼_조건": null,
+  "자리": "R6",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-150",
+  "조사": "리토폴로지 도구군: Blender QuadriFlow·복셀 Remesh, Instant Meshes, Retopogen, QuadForge, PyMeshLab, 학습형 십자장 NeurCross·CrossGen·AutoRemesher (RetopoFlow 4 는 유료라 제외)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "docs/무료도구_조사.md",
+   "docs/조사_보고서.md",
+   "https://arxiv.org/pdf/2405.13745",
+   "https://arxiv.org/pdf/2506.07020",
+   "https://trendshift.io/repositories/40272",
+   "https://superhivemarket.com/products/retopogen/faq"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: QuadriFlow·NeurCross 등 → R6 리토폴로지·UV. 설계_LLM_3D모델러 2.3 표: Blender 내장 QuadriFlow 부터. 조사_보고서는 케이지 로프트가 이미 사각 고리라 불필요, 보셀 경로를 쓸 때만이라고 적었다. 루프_작업목록 항목 8 이 QuadriFlow 리토폴로지를 뒤이어 할 일로 적었다. 무료도구_조사는 PyMeshLab(GPL)의 배포 적합성 확인 필요, RetopoFlow 4 는 유료라 제외로 적었다.",
+  "다시_볼_조건": null,
+  "자리": "R6, 루프 8",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-151",
+  "조사": "부위 단위 UV 펼치기 (PartUV: 왜곡 한도 안에서 조각 수 최소, Blender 보다 조각이 1/31; SeamGPT)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/pdf/2511.16659"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: PartUV → R6. 설계_LLM_3D모델러 5.2: R6 에서 리토폴로지(QuadriFlow) 다음에 PartUV 로 부위 단위 UV, R5 텍스처 전에 둔다.",
+  "다시_볼_조건": null,
+  "자리": "R6",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-152",
+  "조사": "화가식 메시 생성 (MeshAnything, BPT, DeepMesh, TreeMeshGPT, FastMesh, MeshMosaic, PolyFlow, MeshFlow)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/html/2606.30673v1"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: MeshAnything 계열 → R6. 설계_LLM_3D모델러 5.1 표: 독립 비교에서 복잡한 모양은 깨진 형상·빠진 부위가 잦고 DeepMesh 도 가는 구조·세부에서 흠이 보여, 뿔·귀 같은 가는 부위가 약점이라 그대로는 못 쓴다. 리토폴로지는 R6 대로 QuadriFlow 부터.",
+  "다시_볼_조건": null,
+  "자리": "R6",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-153",
+  "조사": "UniRig·SkinTokens·MagicArticulate 같은 학습 기반 자동 뼈대·스키닝",
+  "출처": [
+   "docs/무료도구_조사.md",
+   "docs/자유조사_2026-10-29.md",
+   "docs/설계_LLM_3D모델러.md",
+   "https://github.com/VAST-AI-Research/UniRig",
+   "https://www.arxiv.org/pdf/2602.04805"
+  ],
+  "상태": "기각",
+  "근거": "무료도구_조사: UniRig·학습 분할 모델은 GPU·학습 모델이라 제외(별도 승인). 자유조사 5절: 학습 모델·GPU라 승인 필요, 네발 동물 전용 결과는 못 찾음(UNKNOWN), 뼈대가 틀리면 스키닝이 크게 나빠진다. 설계_LLM_3D모델러 2.5 표는 리깅 준비 검사기 + 부위 뼈가 PASS 라고 적었다.",
+  "다시_볼_조건": "별도 승인이 나고 GPU 요건이 풀릴 때, 네발 동물 성능이 확인될 때(자유조사: UNKNOWN)",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-154",
+  "조사": "영상 → 움직임(트래킹): 만든 뼈대 + 참고 영상 → BVH (MoCapAnything, QuadMocap)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/pdf/2512.10881",
+   "https://github.com/phongdaot/MocapAnything",
+   "https://github.com/sparklecatta-lang/XSXB-Mocap"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: MoCapAnything·QuadMocap → R7 트래킹. 설계_LLM_3D모델러 5.2 채택 기준: 사족 시험 영상 하나에서 뼈대가 따라 움직이고 메시가 찢어지지 않음(가중치 0 정점 0%, 관절 각 이상값 없음). 5.3: CPU 실행 가능 여부와 가중치 크기는 UNKNOWN.",
+  "다시_볼_조건": null,
+  "자리": "R7",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-155",
+  "조사": "그림 → 텍스처 (CreatureShop, CharNeRF, FlexPainter, ConTEXTure): 정면·옆 투영 + 재질별 평면색, 가려진 면은 재질 지도로 메운다",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/pdf/2208.05572",
+   "https://arxiv.org/pdf/2402.17115",
+   "https://arxiv.org/html/2506.02620v1"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: CreatureShop·FlexPainter → R5 텍스처. 설계_LLM_3D모델러 R5 채택 기준: 투영한 텍스처를 다시 렌더한 정면·옆 그림이 도면 색과 재질별 평균 색차 ΔE < 10. FlexPainter·ConTEXTure 는 확산 모델이라 GPU 가 사실상 필요해 CPU 로는 도면 투영 + 재질 지도 메우기가 현실적.",
+  "다시_볼_조건": null,
+  "자리": "R5",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-156",
+  "조사": "모양 그럴듯함 검사기: 법선 일관성(Eval3D), 사람 평가 기반 지표(DB-3DME), 왜곡·비율·이어짐·위상·UV 항목(AssetGen 평가), 입력 조건 비교(3D-DefectBench)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/pdf/2504.18509",
+   "https://arxiv.org/pdf/2606.10142",
+   "https://arxiv.org/pdf/2605.26137",
+   "https://arxiv.org/pdf/2607.10826"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: Eval3D·DB-3DME·3D-DefectBench → R4 모양 검사기. 설계_LLM_3D모델러 R4 채택 기준: 합성에서 일부러 각지게 만든 메시와 둥근 메시를 갈라내고 들소 16차 각진 머리를 FAIL 로 잡음. 2.6 표는 모양 그럴듯함을 재는 검사기가 없다고 적었다.",
+  "다시_볼_조건": null,
+  "자리": "R4",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-157",
+  "조사": "숙련자 공정 순서(블록아웃 → 1차 형태 → 2차 → 3차 세부)를 카드로 만들고 앞 공정 관문을 통과해야 다음으로 간다 (Planner-Actor-Critic 의 부위 분해)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/pdf/2601.05016"
+  ],
+  "상태": "대기",
+  "근거": "설계_LLM_3D모델러 6.2 적용 1번(R4 검사기·카드에 넣음). 6.1: 숙련자 공정을 따라 하는 AI 연구는 정면으로 다룬 것을 못 찾음(UNKNOWN), 이 하네스가 채울 자리. 현재 카드는 단계 1~5 로 있으나 이 공정 순서와 같다는 기록은 없고 조사_색인에도 결정이 없다.",
+  "다시_볼_조건": null,
+  "자리": "R4 (설계_LLM_3D모델러 6.2)",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-158",
+  "조사": "아트 원칙 항목 점수: 통째 판정 대신 두 모델 가족이 고정 시점 렌더를 보고 항목마다(실루엣 읽힘, 비율, 형태 언어 일관, 큰-중-작 대비, 무게감·접지, 대칭, 도면 스타일 유지) 점수",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/pdf/2609.27110",
+   "https://arxiv.org/pdf/2608.25876",
+   "https://arxiv.org/pdf/2608.28122"
+  ],
+  "상태": "대기",
+  "근거": "설계_LLM_3D모델러 6.1·6.2 2번: 통째 판정보다 항목별 점수가 정보가 많다. 검증 기준: 같은 모델의 좋은 판과 일부러 망친 판을 항목 점수가 가려냄(두 가족 일치 ≥ 0.8), 들소 16차 각진 머리를 형태 언어·실루엣 항목에서 낮게 잡음. 조사_색인에 결정이 없다.",
+  "다시_볼_조건": null,
+  "자리": "R4 (설계_LLM_3D모델러 6.2)",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-159",
+  "조사": "숙련자 지식 모으기: 튜토리얼 영상에서 작업 절차를 뽑아 카드·교훈·스킬로 (BlenderLore, VideoCAD, Fusion 360 Gallery)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "https://skillsllm.com/skill/blenderlore",
+   "https://arxiv.org/pdf/2505.24838",
+   "https://arxiv.org/pdf/2010.02392"
+  ],
+  "상태": "대기",
+  "근거": "설계_LLM_3D모델러 6.2 적용 3번. BlenderLore 는 제3자 소개만 있고 원 저장소 확인이 필요하다고 6.1 에 적혀 있다. 조사_색인에 결정이 없다.",
+  "다시_볼_조건": null,
+  "자리": "R4 카드·교훈·스킬 (설계_LLM_3D모델러 6.2)",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-160",
+  "조사": "배경·부위 분할 섞기: ToonOut(애니 캐릭터용 BiRefNet, MIT), rembg isnet-anime, 그림 부위 분석 ChildlikeSHAPES, 선화 부위 분할(Yajima 2018)",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "https://arxiv.org/html/2509.06839v1",
+   "https://arxiv.org/html/2504.08022v1",
+   "https://kanamori.cs.tsukuba.ac.jp/publications/nicoint2018/character_segmentation.pdf"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: ToonOut(설치됨, 가중치 이름 맞추기 남음), isnet-anime → R3 배경·분할 섞기(docs/계획_도구섞기.md). 설계_LLM_3D모델러 R3 채택 기준: 체크무늬 정답 벤치마크에서 섞기 ≥ 규칙(한 항목 +0.02), 한 색 배경 하락 없음. ChildlikeSHAPES·Yajima 는 2.1 표가 같은 색 하위 부위 경계가 약하다는 맥락에서 올렸고 R3 가 같은 색 하위 부위 경계를 다룬다(결정 기록은 없음).",
+  "다시_볼_조건": null,
+  "자리": "R3",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-161",
+  "조사": "SAM 2.1 (hiera-tiny, Apache-2.0, CPU)로 작은 부위·한 재질 부위를 딴다: 부위별 SAM(사양 명시) + 그림 근거 우선 + 안전 검사",
+  "출처": [
+   "docs/설계_LLM_3D모델러.md",
+   "docs/무료도구_조사.md",
+   "docs/자유조사_2026-10-29.md"
+  ],
+  "상태": "채택",
+  "근거": "조사_색인 '이미 하네스에 들어간 조사' 표: SAM 2.1 → 부위별 SAM(사양 명시) + 그림 근거 우선 + 안전 검사(크기 자동 규칙은 FAIL, 수정_기록 43), 결과 새 씨앗 옆 귀 0.654→0.733. 설계_LLM_3D모델러 2.1 표: 우리 영역 선택 + 부위별 SAM(사양에서 명시, 크기 자동 규칙은 FAIL 로 끔), 같은 색 하위 부위 경계는 약함. SAM 쪼개기는 색인이 기각으로 적었다.",
+  "다시_볼_조건": null,
+  "자리": "수정_기록 35",
+  "구현": [
+   "harness/sam_bridge.py",
+   "harness/trace.py",
+   "trace.py"
+  ],
+  "구현_근거": "harness/sam_bridge.py 의 segment(29행), harness/trace.py 의 resolve_overlaps(priority=)(409행, 그림 근거 우선), trace.py 249~290행이 method_by_part 로 부위별 sam 호출. 시험은 bench/sam_bench.py(채택 기준 +0.02 를 돌리기 전에 정함)·bench/sam_diag.py 이고 tests/ 폴더에는 SAM 시험을 못 찾음.",
+  "측정": [
+   "bench/sam_bench.py",
+   "bench/sam_diag.py"
+  ]
+ },
+ {
+  "id": "R-162",
+  "조사": "동물 형태 사전 (SMAL, BARC, 3D-Fauna, LASSIE, Hi-LASSIE, MagicPony, Ponymation, ARTIC3D): 네발 동물 메시 틀로 가려진 몸을 채운다",
+  "출처": [
+   "docs/자유조사_2026-10-29.md",
+   "docs/설계_LLM_3D모델러.md",
+   "docs/설계_형태판단.md",
+   "https://arxiv.org/pdf/2410.09312"
+  ],
+  "상태": "보류",
+  "근거": "자유조사 3절: 학습 모델·GPU라 지금 못 쓴다. 설계_LLM_3D모델러 5.1 표: 해부 보완과 그럴듯함 검사기에 쓸 네발 짐승 형태 사전 후보, 학습형이라 나중. 설계_형태판단 1절: ARTIC3D 는 GPU 학습형이라 지금은 참고.",
+  "다시_볼_조건": "해부 보완을 규칙 이상으로 키울 때(자유조사), 나중에 그럴듯함 검사기 하나로 붙일 때(설계_형태판단)",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-163",
+  "조사": "변형의 그럴듯함을 2D 확산 모델로 점수화 (APAP, CVPR 2024)",
+  "출처": [
+   "docs/설계_형태판단.md",
+   "https://openaccess.thecvf.com/content/CVPR2024/html/Yoo_As-Plausible-As-Possible_Plausibility-Aware_Mesh_Deformation_Using_2D_Diffusion_Priors_CVPR_2024_paper.html"
+  ],
+  "상태": "보류",
+  "근거": "설계_형태판단 1절 표: GPU 학습형이라 지금은 참고, 나중에 검사기 하나로.",
+  "다시_볼_조건": "나중에 그럴듯함 검사기 하나로 붙일 때(설계_형태판단)",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-164",
+  "조사": "다른 뷰가 투표하는 형태 판단: 뷰마다 공유 형상과의 일치 점수로 어긋난 뷰를 버린다 (RobustVGGT, MVGSR, 뷰 일치의 정의)",
+  "출처": [
+   "docs/설계_형태판단.md",
+   "https://arxiv.org/pdf/2512.04012",
+   "https://arxiv.org/pdf/2503.08093",
+   "https://arxiv.org/pdf/2608.09110"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: RobustVGGT 등 → R2.5 형태 판단·의도 파악 루프. 설계_형태판단 2.1: 뷰 합의(E1)가 가장 강한 근거. 채택 기준(3절): 정밀도 ≥ 0.9, 의도된 특이함 오교정률 ≤ 0.05, 재현율 ≥ 0.6, 기존 벤치마크 하락 없음.",
+  "다시_볼_조건": null,
+  "자리": "R2.5",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-165",
+  "조사": "규칙성과 충실함의 저울: 대칭·평행 같은 규칙성을 골라서 적용하되 그림에서 벗어난 넓이와 저울질하고, 약하면 그림을 따른다 (True2Form, 대칭 기반 스케치 복원, Li 외, Pu·Ramani)",
+  "출처": [
+   "docs/설계_형태판단.md",
+   "https://www.cs.ubc.ca/labs/imager/tr/2014/True2Form/index.htm",
+   "https://science.ulysseus.eu/records/001ph-zxp29",
+   "https://www.cs.princeton.edu/courses/archive/spring11/cos598A/pdfs/Li10.pdf",
+   "https://www.cs.hmc.edu/courses/2008/spring/cs182-pbc/papers/Pu2007.pdf"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: True2Form 등 → R2.5. 설계_형태판단 2.2 결정 규칙: 독립 근거 둘 이상이 같은 안을 가리키고 두 모델 가족이 일치할 때만 고치고, 아니면 그림을 따르고 UNKNOWN. 5절: True2Form 의 정확한 저울 식은 본문이 필요해 UNKNOWN.",
+  "다시_볼_조건": null,
+  "자리": "R2.5",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-166",
+  "조사": "형태 사전의 위험: VLM 은 흔한 몸을 믿어 의도된 특이함을 오류로 고친다 (AdversarialAnatomyBench: 흔한 해부 74% → 드문 변이 29%), 사전만으로는 고치지 않는다",
+  "출처": [
+   "docs/설계_형태판단.md",
+   "https://arxiv.org/pdf/2512.04238"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: AdversarialAnatomyBench → R2.5. 설계_형태판단 2.1·2.2: 형태 사전(E4)은 단독으로는 고치지 않고, 후보는 E1 또는 E2 가 어긋날 때만 만들며 E3·E4 만으로는 참고 표시만 한다(의도된 디자인 보호).",
+  "다시_볼_조건": null,
+  "자리": "R2.5",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-167",
+  "조사": "생성 그림의 해부 흠 찾기: 부위 규칙으로 먼저 후보를 만들고 VLM 은 설명용 (INSIGHT, 동물 해부 그럴듯함 규칙 점수 arXiv 2511.15204, 생성 의학 삽화 해부 오류 조사)",
+  "출처": [
+   "docs/설계_형태판단.md",
+   "https://arxiv.org/pdf/2511.22351",
+   "https://arxiv.org/pdf/2511.15204",
+   "https://www.ovid.com/jnls/prsgo/fulltext/10.1097/gox.0000000000007676~a-i-naccurate-anatomy-prevalence-of-artificial"
+  ],
+  "상태": "대기",
+  "근거": "설계_형태판단 1절 표: AI 도면은 오류가 흔하다는 전제이며 흠 후보는 부위 관계 규칙으로 먼저, VLM 은 설명용. 조사_색인 '아직 안 쓴 조사' 표는 R2.5 연구로 RobustVGGT·True2Form 등만 이름으로 적어 이 항목의 결정은 없다. 오류 주입 합성 벤치마크 기준은 설계_형태판단 3절.",
+  "다시_볼_조건": null,
+  "자리": "R2.5",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-168",
+  "조사": "참고 사진·참고 그림으로 부위 오류 확인: 실제 동물이면 참고 사진이 근거, 환상 크리처면 근거가 아니다 (ORIG, 종·부위 오류 분류 arXiv 2609.01375, RAU)",
+  "출처": [
+   "docs/설계_형태판단.md",
+   "https://papers.cool/arxiv/2510.22521",
+   "https://arxiv.org/pdf/2609.01375",
+   "https://arxiv.org/abs/2509.22404"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: ORIG → R2.5. 설계_형태판단 2.1: E4 형태 사전의 한 갈래로 실제 동물이면 참고 사진(사용자가 준 것 또는 승인된 검색), 단독으로는 고치지 않음.",
+  "다시_볼_조건": null,
+  "자리": "R2.5",
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ },
+ {
+  "id": "R-169",
+  "조사": "의도 파악 루프: 그림을 조각으로 쪼개 조각마다 객관식 피아식별, 확대·다른 뷰 띠·거울 자리 증거, 가설 → 예측 → 도구가 측정, 두 모델 가족 합의 (DeepEyes, VLM-R³, Chain-of-Focus)",
+  "출처": [
+   "docs/설계_형태판단.md",
+   "https://arxiv.org/abs/2505.14362v2",
+   "https://arxiv.org/abs/2505.16192v1",
+   "https://arxiv.org/abs/2601.02918"
+  ],
+  "상태": "대기",
+  "근거": "조사_색인 '아직 안 쓴 조사' 표: DeepEyes·VLM-R³ → R2.5(docs/구현안내_의도파악루프.md). 설계_형태판단 6.3 채택 기준: 확정한 조각의 정확도 ≥ 0.95, 확정 비율 ≥ 0.7, 오류 없는 도면에서 트레이스 IoU 하락 없음, 도면당 질문 수 ≤ 40. 확대를 거듭하면 느려지므로 질문 수 한도를 둔다.",
+  "다시_볼_조건": null,
+  "자리": "R2.5",
+  "구현": [
+   "harness/api.py",
+   "harness/llm_aids.py"
+  ],
+  "시험": [
+   "tests/selftest_aids.py"
+  ],
+  "구현_근거": "일부만 있음: harness/api.py 의 zoom 도구(164행, 부위 확대 그림, 설계의 inspect 에 해당)와 harness/llm_aids.py 의 judge(두 가족·순서 바꿈). 설계가 말한 ask·test·resolve 로 가설을 예측하고 측정하는 루프는 못 찾음."
+ },
+ {
+  "id": "R-170",
+  "조사": "표면 다듬기 다섯 가지 (부호 거리장 가우스, 거리장 ±반 칸 띠, Taubin 등, 제한 이완, 반 픽셀 복셀)로 복셀 계단을 실루엣을 지키며 줄인다",
+  "출처": [
+   "docs/조사_매끈한형상.md",
+   "docs/조사_색인.md"
+  ],
+  "상태": "기각",
+  "근거": "조사_색인 기각·보류 표: 표면 다듬기 5가지는 가는 부위 실루엣 < 0.99 라 기각, R1(매끈한 일반화 원통)이 대체. 조사_매끈한형상 머리말: 다듬기 넷(가우스·거리장·띠·제한 이완·반 픽셀)은 모두 실루엣 0.99 를 못 지켰다.",
+  "다시_볼_조건": "R1 매끈한 일반화 원통이 대체함(조사_색인), R1 이 안 되면 다시",
+  "자리": null,
+  "구현": [],
+  "시험": [],
+  "구현_근거": "못 찾음"
+ }
+]

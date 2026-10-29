@@ -1,0 +1,11 @@
+sessions/
+__pycache__/
+*.npy
+.vendor/
+bench/out/
+.vendor_mcp/
+.venv_sam/
+.claude/settings.local.json
+.venv_laya/
+.venv_toonout/
+episodes/
