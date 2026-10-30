@@ -403,7 +403,7 @@ A visual hull is what you get by cutting out the front outline and the side outl
 **Goal:** the AI writes a **blueprint (JSON)** with the part list, primitive types, attachment points, mirror pairs, cross-section templates, reasons and confidence. The tools build exactly what it says.
 
 **What we build:**
-- The blueprint format: [`docs/설계도_형식.md`](docs/설계도_형식.md). Anatomy (bone landmarks, proportions) and perspective hints live inside it too.
+- The blueprint format: [English guide](docs/en/blueprint-format.md) (Korean source: [`docs/설계도_형식.md`](docs/설계도_형식.md)). Anatomy (bone landmarks, proportions) and perspective hints live inside it too.
 - A check before building: do the cross-sections match the drawing's widths, are mirror pairs symmetric, is each attachment point on the parent's surface?
 - Part-level commands, all without coordinates: `rebuild(part)`, `section_set`, `scale_rel`, `attach`, `mirror`. **Changing one part must leave every other part's fingerprint unchanged.**
 - Procedure cards: a skilled modeler's working order as cards (for example, "blocking out a creature head"), with sources and one human review.
